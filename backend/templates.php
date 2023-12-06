@@ -33,8 +33,8 @@ class Templates {
         if ($this->domain == 'odal') {
             $this->v = mt_rand(10000, 99999999);
         } else {
-            $this->v = file_get_contents($root."/backend/version.txt");
-            $this->v = preg_replace('/^\h*\v+/m', '', $this->v);
+            $getFileVersion = file($root."/backend/version.txt"); // Чтение файла и сохранение его содержимого в массив $lines
+            $this->v = $getFileVersion[0];
 
             clearCash($root . "/assets", $this->v);
             clearCash($root . "/components", $this->v);
