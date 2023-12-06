@@ -1,0 +1,80 @@
+
+@font-face {
+    font-family: 'Styrene A Web';
+    src: url('StyreneAWeb-Regular.eot');
+    src: local('Styrene A Web Regular'), local('StyreneAWeb-Regular'),
+    url('StyreneAWeb-Regular.eot?#iefix') format('embedded-opentype'),
+    url('StyreneAWeb-Regular.woff2') format('woff2'),
+    url('StyreneAWeb-Regular.woff') format('woff'),
+    url('StyreneAWeb-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Styrene A Web';
+    src: url('StyreneAWeb-Medium.eot');
+    src: local('Styrene A Web Medium'), local('StyreneAWeb-Medium'),
+    url('StyreneAWeb-Medium.eot?#iefix') format('embedded-opentype'),
+    url('StyreneAWeb-Medium.woff2') format('woff2'),
+    url('StyreneAWeb-Medium.woff') format('woff'),
+    url('StyreneAWeb-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+
+
+@font-face {
+    font-family: 'Styrene A Web';
+    src: url('StyreneAWeb-Bold.eot');
+    src: local('Styrene A Web Bold'), local('StyreneAWeb-Bold'),
+    url('StyreneAWeb-Bold.eot?#iefix') format('embedded-opentype'),
+    url('StyreneAWeb-Bold.woff2') format('woff2'),
+    url('StyreneAWeb-Bold.woff') format('woff'),
+    url('StyreneAWeb-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+
+
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('OpenSans-Regular.eot');
+    src: local('Open Sans Regular'), local('OpenSans-Regular'),
+    url('OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
+    url('OpenSans-Regular.woff2') format('woff2'),
+    url('OpenSans-Regular.woff') format('woff'),
+    url('OpenSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('OpenSans-SemiBold.eot');
+    src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'),
+    url('OpenSans-SemiBold.eot?#iefix') format('embedded-opentype'),
+    url('OpenSans-SemiBold.woff2') format('woff2'),
+    url('OpenSans-SemiBold.woff') format('woff'),
+    url('OpenSans-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('OpenSans-Light.eot');
+    src: local('Open Sans Light'), local('OpenSans-Light'),
+    url('OpenSans-Light.eot?#iefix') format('embedded-opentype'),
+    url('OpenSans-Light.woff2') format('woff2'),
+    url('OpenSans-Light.woff') format('woff'),
+    url('OpenSans-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}

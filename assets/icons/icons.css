@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+.icon {
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+    font-size: 16px;
+    background-color: #000;
+}
+
+.icon.play {
+    mask-image: url(./play.svg);
+    -webkit-mask-image: url(./play.svg);
+}
+
+.icon.close {
+    mask-image: url(./close.svg);
+    -webkit-mask-image: url(./close.svg);
+}
+
+.icon.phone {
+    mask-image: url(./phone.svg);
+    -webkit-mask-image: url(./phone.svg);
+}
+
+.icon.burger {
+    mask-image: url(./burger.svg);
+    -webkit-mask-image: url(./burger.svg);
+}

@@ -1,0 +1,11 @@
+header {
+    background-color: #162B32;
+}
+
+header .menu-cnt > ul {
+    display: none;
+}
+
+footer .footer__menu:first-child {
+    display: none;
+}

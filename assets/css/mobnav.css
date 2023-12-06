@@ -1,0 +1,95 @@
+.G-mob-navigation {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+}
+
+.G-mob-navigation:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: opacity 350ms ease-in-out;
+}
+
+.G-mob-navigation.open:after {
+    opacity: 1;
+}
+
+.G-mob-navigation .wrapper-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 85%;
+    height: 100%;
+    padding-top: 120px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #162B32;
+    transform: translateX(100%);
+    transition: transform 300ms ease-in-out;
+}
+
+.G-mob-navigation.open .wrapper-container {
+    transform: translateX(0);
+}
+
+.G-mob-navigation .wrapper-container .nav-list {
+    margin: 0;
+}
+
+.G-mob-navigation .wrapper-container .nav-list .item {
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 15px 0;
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffffff;
+    white-space: nowrap;
+    text-transform: uppercase;
+    text-align: right;
+}
+
+.G-mob-navigation .wrapper-container .footer-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    grid-row-gap: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 0;
+}
+
+.G-mob-navigation .wrapper-container .footer-nav .phone {
+    font-size: 25px;
+    color: #fff;
+}
+
+.G-mob-navigation .wrapper-container .footer-nav .social-network {
+    display: flex;
+    align-items: center;
+    grid-column-gap: 10px;
+}
+
+.G-mob-navigation .wrapper-container .footer-nav .social-network a {
+    display: flex;
+    width: 30px;
+    height: 30px;
+}
+
+.G-mob-navigation .wrapper-container .footer-nav .social-network a i {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
