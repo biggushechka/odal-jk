@@ -50,7 +50,7 @@ export default function MainSlider(jk) {
                     <div class="apartment__info">
                         <span>ВАШ НОВЫЙ ОБРАЗ ЖИЗНИ</span>
                         <h1>
-                            <span>Апартаментные комплексы</span>
+                            <span>Апартаментные комплексы.</span>
                             <br>
                             «${jk.title}»
                         </h1>

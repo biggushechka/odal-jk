@@ -40,3 +40,7 @@ jobs:
             cd ${{env.SERVER_PATH}}/darsan-apartments.ru;
             git checkout master;
             git pull origin master;
+            
+            cd ${{env.SERVER_PATH}}/alba-del-mare.ru;
+            git checkout master;
+            git pull origin master;
