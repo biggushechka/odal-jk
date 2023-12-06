@@ -33,9 +33,17 @@ jobs:
           password: ${{env.SERVER_PASS}}
           key: ${{secrets.KEY}}
           script: |
+            cd ${{env.SERVER_PATH}}/alba-del-mare.ru;
+            git checkout master;
+            git reset --hard
+            git pull origin master;
+            
             cd ${{env.SERVER_PATH}}/ayu-dag.ru;
-            whoami
-            ls -al
+            git checkout master;
+            git reset --hard
+            git pull origin master;
+            
+            cd ${{env.SERVER_PATH}}/darsan-apartments.ru;
             git checkout master;
             git reset --hard
             git pull origin master;
