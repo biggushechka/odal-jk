@@ -14,7 +14,10 @@ class Templates {
         if ($domain == "") {
             echo "empty";
         } else {
-            echo $domain;
+            print_r($url);
+            print_r($host);
+            print_r($parts);
+            print_r($domain);
         }
 
 
