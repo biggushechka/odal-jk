@@ -1,6 +1,6 @@
 export default function Gallery() {
 
-    const gallery = ajaxRequest({url: "/ajax/Gallery.json"});
+    const gallery = ajaxRequest({url: "/ajax/"+domain+"/Gallery.json"});
 
     if (gallery.length == 0) return false;
 

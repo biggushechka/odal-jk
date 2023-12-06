@@ -1,6 +1,6 @@
 export default function PersonalTour() {
 
-    const PersonalTour = ajaxRequest({url: "/ajax/PersonalTour.json"});
+    const PersonalTour = ajaxRequest({url: "/ajax/"+domain+"/PersonalTour.json"});
     
     var title = (PersonalTour.title != undefined && PersonalTour.title != '') ? PersonalTour.title : `<span style="color: red;">????????</span>`,
         desc = (PersonalTour.desc != undefined && PersonalTour.desc != '') ? PersonalTour.desc : `<span style="color: red;">????????</span>`,

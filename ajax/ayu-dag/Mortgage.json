@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Сбербанк",
+    "logo": "/assets/img/banks/sber.svg",
+    "rate": "6",
+    "initialPayment": "15"
+  },
+  {
+    "title": "ВТБ",
+    "logo": "/assets/img/banks/vtb.svg",
+    "rate": "4",
+    "initialPayment": "24"
+  },
+  {
+    "title": "Открытие",
+    "logo": "/assets/img/banks/open.svg",
+    "rate": "5.2",
+    "initialPayment": "30"
+  },
+  {
+    "title": "Росбанк",
+    "logo": "/assets/img/banks/rosbank.svg",
+    "rate": "12",
+    "initialPayment": "30"
+  }
+]

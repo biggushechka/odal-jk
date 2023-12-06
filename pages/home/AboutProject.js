@@ -1,6 +1,6 @@
 export default function AboutProject() {
 
-    const aboutJK = ajaxRequest({url: "/ajax/AboutJK.json"});
+    const aboutJK = ajaxRequest({url: "/ajax/"+domain+"/AboutJK.json"});
 
     var indexTitle = (aboutJK.index.title != undefined && aboutJK.index.title != '') ? aboutJK.index.title : `<span style="color: red;">????????</span>`,
         indexDesc = (aboutJK.index.desc != undefined && aboutJK.index.desc != '') ? aboutJK.index.desc : `<span style="color: red;">????????</span>`,

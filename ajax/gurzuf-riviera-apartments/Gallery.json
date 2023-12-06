@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Фасады зданий",
+    "photos": [
+      {
+        "url": "/assets/img/MainSlider/image-1.jpg"
+      },
+      {
+        "url": "/assets/img/MainSlider/image-2.jpg"
+      },
+      {
+        "url": "/assets/img/MainSlider/image-3.jpg"
+      },
+      {
+        "url": "/assets/img/MainSlider/image-4.jpg"
+      },
+      {
+        "url": "/assets/img/MainSlider/image-5.jpg"
+      }
+    ]
+  },
+  {
+    "title": "Входная группа",
+    "photos": [
+      {
+        "url": "/assets/img/MainSlider/image-2.jpg"
+      },
+      {
+        "url": "/assets/img/MainSlider/image-1.jpg"
+      },
+      {
+        "url": "/assets/img/MainSlider/image-3.jpg"
+      },
+      {
+        "url": "/assets/img/MainSlider/image-4.jpg"
+      },
+      {
+        "url": "/assets/img/MainSlider/image-5.jpg"
+      }
+    ]
+  },
+  {
+    "title": "Внутренний двор",
+    "photos": [
+      {
+        "url": "/assets/img/MainSlider/image-3.jpg"
+      },
+      {
+        "url": "/assets/img/MainSlider/image-2.jpg"
+      },
+      {
+        "url": "/assets/img/MainSlider/image-1.jpg"
+      },
+      {
+        "url": "/assets/img/MainSlider/image-4.jpg"
+      },
+      {
+        "url": "/assets/img/MainSlider/image-5.jpg"
+      }
+    ]
+  },
+  {
+    "title": "Окружение",
+    "photos": [
+      {
+        "url": "/assets/img/MainSlider/image-4.jpg"
+      },
+      {
+        "url": "/assets/img/MainSlider/image-2.jpg"
+      },
+      {
+        "url": "/assets/img/MainSlider/image-3.jpg"
+      },
+      {
+        "url": "/assets/img/MainSlider/image-1.jpg"
+      },
+      {
+        "url": "/assets/img/MainSlider/image-5.jpg"
+      }
+    ]
+  }
+]

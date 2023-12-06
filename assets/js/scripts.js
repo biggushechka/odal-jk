@@ -1,5 +1,6 @@
 // ---------- var global ----------
-var version = $('head').find('#versionFiles').attr('content');
+var version = $('head').find('#versionFiles').attr('content'),
+    domain = "";
 
 // ---------- import ----------
 $.ajax({ // modal
@@ -26,6 +27,7 @@ $.ajax({ // quiz
     dataType: "script"
 });
 
+getDomain();
 
 // *** Сразу, после загрузки сайта ***
 // $(document).ready(function () {
@@ -52,8 +54,15 @@ $(document).ready(function () {
     $(".phone").mask('+7 (999)-999-99-99');
 });
 
+function getDomain() {
+    const url = document.URL;
 
-
+    if (window.location.protocol == "http:") {
+        domain = "alba-del-mare";
+    } else {
+        domain = url.hostname.split(".")[0];
+    }
+}
 
 function mergeJson(json1, json2) {
     for(var i in json1){

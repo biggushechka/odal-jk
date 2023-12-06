@@ -3,18 +3,29 @@ class Templates {
 
     private $v = "",
             $domain = "",
+            $title = "",
             $file_ver = "";
 
     function __construct() {
-
-        $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-        $host = parse_url($url, PHP_URL_HOST);
-        $parts = explode(".", $host);
-        $this->domain = $parts[0];
-
         require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/clearCash.php';
         require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/metric.php';
         $root = $_SERVER['DOCUMENT_ROOT'];
+
+        // получаем домен (имя) сайта
+        $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        $host = parse_url($url, PHP_URL_HOST);
+        $parts = explode(".", $host);
+
+        if ($this->domain == "") {
+            $this->domain = "alba-del-mare";
+        } else {
+            $this->domain = $parts[0];
+        }
+
+        // получаем данные по сайту
+        $jsonData = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/ajax/" . $this->domain . "/jk.json");
+        $data = json_decode($jsonData, true);
+        $this->title = $data['title'];
 
         $this->file_ver = 1;
         if(!is_dir($root."/backend")) mkdir($root."/backend/version.txt");
@@ -44,7 +55,7 @@ class Templates {
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Holland Park</title>
+    <title><?=$this->title?></title>
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
@@ -68,11 +79,7 @@ class Templates {
         }
     }
 
-    if ($_SERVER['HTTP_HOST'] == 'odal') {
-        getMetric("max");
-    } else {
-        getMetric($this->domain);
-    }
+    getMetric($this->domain);
 
     ?>
 
@@ -85,7 +92,6 @@ class Templates {
 <script src="/plugins/maskedinput/jquery.maskedinput.min.js"></script>
 <script src="/assets/js/functions.js?v=<?=$this->v?>"></script>
 <script src="/assets/js/scripts.js?v=<?=$this->v?>"></script>
-
     <?if($arr['js']){
         echo "\n\t<!-- ------- include scripts ------- -->";
         foreach($arr['js'] as $j){
@@ -94,8 +100,6 @@ class Templates {
             }
         }
     }?>
-
-
 </body>
 </html>
     <?}

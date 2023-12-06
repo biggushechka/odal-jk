@@ -1,7 +1,7 @@
 export default function ModalThrough() {
 
-    const jk = ajaxRequest({url: "/ajax/jk.json"});
-    const sliderGallery = ajaxRequest({url: "/ajax/MainSlider.json"});
+    const jk = ajaxRequest({url: "/ajax/"+domain+"/jk.json"});
+    const sliderGallery = ajaxRequest({url: "/ajax/"+domain+"/MainSlider.json"});
 
     var html = `
     <button type="button" class="btn btn-close-modal"><i class="icon close"></i></button>

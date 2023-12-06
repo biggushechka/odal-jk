@@ -1,6 +1,6 @@
 export default function Infrastructure() {
 
-    const infrastructure = ajaxRequest({url: "/ajax/Infrastructure.json"});
+    const infrastructure = ajaxRequest({url: "/ajax/"+domain+"/Infrastructure.json"});
 
     var titleSection = (infrastructure.title != undefined && infrastructure.title != '') ? infrastructure.title : `<span style="color: red;">????????</span>`,
         descSection = (infrastructure.desc != undefined && infrastructure.desc != '') ? infrastructure.desc : `<span style="color: red;">????????</span>`;

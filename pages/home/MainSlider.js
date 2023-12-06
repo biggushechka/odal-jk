@@ -1,6 +1,6 @@
 export default function MainSlider(jk) {
 
-    const sliderGallery = ajaxRequest({url: "/ajax/MainSlider.json"});
+    const sliderGallery = ajaxRequest({url: "/ajax/"+domain+"/MainSlider.json"});
 
     var html = `
     <section class="apartment__main">

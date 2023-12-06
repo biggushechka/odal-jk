@@ -1,6 +1,6 @@
 export default function adsBanner() {
 
-    const adsBanner = ajaxRequest({url: "/ajax/adsBanner.json"});
+    const adsBanner = ajaxRequest({url: "/ajax/"+domain+"/adsBanner.json"});
 
     var title = (adsBanner.title != undefined && adsBanner.title != '') ? adsBanner.title : `<span style="color: red;">????????</span>`,
         desc = (adsBanner.desc != undefined && adsBanner.desc != '') ? adsBanner.desc : `<span style="color: red;">????????</span>`,

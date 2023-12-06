@@ -1,6 +1,6 @@
 export default function Mortgage(jk_title) {
 
-    const banks = ajaxRequest({url: "/ajax/Mortgage.json"});
+    const banks = ajaxRequest({url: "/ajax/"+domain+"/Mortgage.json"});
 
     var html = `
     <section id="stock" data-section="mortgage">
