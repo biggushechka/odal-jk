@@ -2,6 +2,7 @@
 class Templates {
 
     private $v = "",
+            $domain = "",
             $file_ver = "";
 
     function __construct() {
@@ -9,18 +10,10 @@ class Templates {
         $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
         $host = parse_url($url, PHP_URL_HOST);
         $parts = explode(".", $host);
-        $domain = $parts[0];
-
-        if ($domain == "") {
-            echo "empty";
-        } else {
-            echo $domain;
-        }
-
-
-
+        $this->domain = $parts[0];
 
         require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/clearCash.php';
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/metric.php';
         $root = $_SERVER['DOCUMENT_ROOT'];
 
         $this->file_ver = 1;
@@ -73,7 +66,15 @@ class Templates {
                     default: echo"\n\t<link rel='stylesheet' href='{$c}.css?v={$this->v}'>";
             }
         }
-    }?>
+    }
+
+    if ($_SERVER['HTTP_HOST'] == 'odal') {
+        getMetric("max");
+    } else {
+        getMetric($this->domain);
+    }
+
+    ?>
 
 </head>
 <body>
