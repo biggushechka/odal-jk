@@ -22,6 +22,9 @@ class Templates {
             $this->domain = $parts[0];
         }
 
+
+
+
         // получаем данные по сайту
         $jsonData = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/ajax/" . $this->domain . "/jk.json");
         $data = json_decode($jsonData, true);

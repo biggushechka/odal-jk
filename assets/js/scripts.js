@@ -56,8 +56,7 @@ $(document).ready(function () {
 
 function getDomain() {
     const url = document.URL;
-
-    if (window.location.protocol == "http:") {
+    if (url == "http://odal/") {
         domain = "alba-del-mare";
     } else {
         domain = url.hostname.split(".")[0];
