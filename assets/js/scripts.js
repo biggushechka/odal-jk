@@ -1,6 +1,7 @@
 // ---------- var global ----------
-var version = document.querySelector("meta[name='version']").getAttribute("content"),
-    domain = document.querySelector("meta[name='namesite']").getAttribute("content");
+var version = document.querySelector("#configmeta").getAttribute("version"),
+    domain = document.querySelector("#configmeta").getAttribute("domain");
+
 
 // ---------- import ----------
 $.ajax({ // modal

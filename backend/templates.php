@@ -16,7 +16,7 @@ class Templates {
         if ($this->domain == "odal") $this->domain = "alba-del-mare";
 
         // получаем данные по сайту
-        $jsonData = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/ajax/" . $this->domain . "/jk.json");
+        $jsonData = file_get_contents($root."/ajax/".$this->domain."/jk.json");
         $data = json_decode($jsonData, true);
         $this->title = $data['title'];
 
@@ -30,7 +30,7 @@ class Templates {
             $this->file_ver = 1;
         }
 
-        if ($_SERVER['HTTP_HOST'] == 'odal') {
+        if ($this->domain == 'odal') {
             $this->v = mt_rand(10000, 99999999);
         } else {
             $this->v = file_get_contents($root."/backend/version.txt");
@@ -52,8 +52,7 @@ class Templates {
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-    <meta name="version" content="<?=$this->v?>">
-    <meta name="namesite" content="<?=$this->title?>">
+    <meta version="<?=$this->v?>" domain="<?=$this->domain?>" id="configmeta">
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="/static/favicon.svg?v=<?=$this->v?>">
