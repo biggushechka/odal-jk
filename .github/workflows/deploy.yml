@@ -33,7 +33,8 @@ jobs:
           password: ${{env.SERVER_PASS}}
           key: ${{secrets.KEY}}
           script: |
+            whoami
+            ls -al
             cd ${{env.SERVER_PATH}}/ayu-dag.ru;
             git checkout master;
-            git push;
             git pull origin master;
