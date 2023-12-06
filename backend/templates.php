@@ -35,7 +35,7 @@ class Templates {
             $this->file_ver = 1;
         }
 
-        if ($_SERVER['HTTP_HOST'] == 'realestate') {
+        if ($_SERVER['HTTP_HOST'] == 'odal') {
             $this->v = mt_rand(10000, 99999999);
         } else {
             $this->v = file_get_contents($root."/backend/version.txt");
