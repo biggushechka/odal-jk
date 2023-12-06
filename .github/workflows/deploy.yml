@@ -38,18 +38,18 @@ jobs:
             git reset --hard
             git pull origin master;
             cd backend
-            echo $((RANDOM%9999999+99999)) > version.txt
+            date +%s > version.txt
             
             cd ${{env.SERVER_PATH}}/ayu-dag.ru;
             git checkout master;
             git reset --hard
             git pull origin master;
             cd backend
-            echo $((RANDOM%9999999+99999)) > version.txt
+            date +%s > version.txt
             
             cd ${{env.SERVER_PATH}}/darsan-apartments.ru;
             git checkout master;
             git reset --hard
             git pull origin master;
             cd backend
-            echo $((RANDOM%9999999+99999)) > version.txt
+            date +%s > version.txt
