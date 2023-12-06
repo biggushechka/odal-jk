@@ -1,11 +1,10 @@
 <?php
 class Templates {
+
     private $v = "",
             $file_ver = "";
 
     function __construct() {
-
-
 
         $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
         $host = parse_url($url, PHP_URL_HOST);
@@ -20,9 +19,8 @@ class Templates {
 
 
 
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/clearCash.php';
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/metric.php';
 
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/clearCash.php';
         $root = $_SERVER['DOCUMENT_ROOT'];
 
         $this->file_ver = 1;
@@ -75,11 +73,7 @@ class Templates {
                     default: echo"\n\t<link rel='stylesheet' href='{$c}.css?v={$this->v}'>";
             }
         }
-    }
-
-//    getMetric();
-
-    ?>
+    }?>
 
 </head>
 <body>
