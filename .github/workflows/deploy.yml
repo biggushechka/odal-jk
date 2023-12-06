@@ -35,8 +35,4 @@ jobs:
           script: |
             cd ${{env.SERVER_PATH}}/ayu-dag.ru;
             git checkout master;
-            whoami;
-            git config user.name "biggushechka";
-            git config user.email "89284483992@mail.ru";
-            git stash drop;
             git pull origin master;
