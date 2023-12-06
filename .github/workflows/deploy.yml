@@ -18,10 +18,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Actions checkout
       - uses: actions/checkout@v3
         with:
           node-version: '18.x'
-
 
       # Deploy
       - name: Connect on remote server and deploy
@@ -36,7 +36,6 @@ jobs:
             cd ${{SERVER_PATH}}/ayu-dag.ru;
             git checkout main;
             git pull origin main
-            
             cd ${{SERVER_PATH}}/darsan-apartments.ru;
             git checkout main;
             git pull origin main
