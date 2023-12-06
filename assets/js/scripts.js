@@ -56,10 +56,13 @@ $(document).ready(function () {
 
 function getDomain() {
     const url = document.URL;
+
+    console.log("url:", url)
+
     if (url == "http://odal/") {
         domain = "alba-del-mare";
     } else {
-        domain = url.hostname.split(".")[0];
+        domain = url.split("//")[1].split(".")[0];
     }
 
     console.log("domain:", domain)
