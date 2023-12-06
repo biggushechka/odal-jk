@@ -53,3 +53,24 @@ jobs:
             git pull origin master;
             cd backend
             date +%s > version.txt
+            
+            cd ${{env.SERVER_PATH}}/gurzuf-riviera-apartments.ru;
+            git checkout master;
+            git reset --hard
+            git pull origin master;
+            cd backend
+            date +%s > version.txt
+            
+            cd ${{env.SERVER_PATH}}/luchistoe-alushta.ru;
+            git checkout master;
+            git reset --hard
+            git pull origin master;
+            cd backend
+            date +%s > version.txt
+            
+            cd ${{env.SERVER_PATH}}/royalta-apartments.ru;
+            git checkout master;
+            git reset --hard
+            git pull origin master;
+            cd backend
+            date +%s > version.txt
