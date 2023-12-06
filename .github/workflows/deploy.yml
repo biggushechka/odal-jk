@@ -35,8 +35,8 @@ jobs:
           script: |
             cd ${{env.SERVER_PATH}}/ayu-dag.ru;
             git checkout main;
-            git pull origin main
+            git pull origin main;
             
             cd ${{env.SERVER_PATH}}/darsan-apartments.ru;
             git checkout main;
-            git pull origin main
+            git pull origin main;
