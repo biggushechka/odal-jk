@@ -1,6 +1,6 @@
-import Header from '/components/Header.js?v=1.03.28'
-import success from './success.js?v=1.03.28'
-import Footer from '/components/Footer.js?v=1.03.28'
+import Header from '/components/Header.js'
+import success from './success.js'
+import Footer from '/components/Footer.js'
 
 const jk = ajaxRequest({url: "/ajax/"+domain+"/jk.json"});
 

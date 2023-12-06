@@ -30,10 +30,10 @@ class Templates {
             $this->file_ver = 1;
         }
 
-        if ($this->domain == 'odal') {
+        if ($_SERVER['HTTP_HOST'] == 'odal') {
             $this->v = mt_rand(10000, 99999999);
         } else {
-            $getFileVersion = file($root."/backend/version.txt"); // Чтение файла и сохранение его содержимого в массив $lines
+            $getFileVersion = file($root."/backend/version.txt", FILE_IGNORE_NEW_LINES);
             $this->v = $getFileVersion[0];
 
             clearCash($root . "/assets", $this->v);
