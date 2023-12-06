@@ -37,4 +37,5 @@ jobs:
             whoami
             ls -al
             git checkout master;
+            git reset --hard
             git pull origin master;
