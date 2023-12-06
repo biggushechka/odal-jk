@@ -12,11 +12,10 @@ class Templates {
         $root = $_SERVER['DOCUMENT_ROOT'];
 
         // получаем домен (имя) сайта
-        $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-        $host = parse_url($url, PHP_URL_HOST);
-        $parts = explode(".", $host);
+        $parts = explode(".", $_SERVER['HTTP_HOST']);
 
-        echo "domain: ".$_SERVER['HTTP_HOST'];
+        echo "parts: ".$parts[0];
+//        echo "domain: ".$_SERVER['HTTP_HOST'];
 
         if ($_SERVER['HTTP_HOST'] == 'odal') {
             $this->domain = "alba-del-mare";
