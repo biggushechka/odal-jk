@@ -35,4 +35,5 @@ jobs:
           script: |
             cd ${{env.SERVER_PATH}}/ayu-dag.ru;
             git checkout master;
+            git push;
             git pull origin master;
