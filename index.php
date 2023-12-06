@@ -5,4 +5,5 @@ $templates->links_head(["css"=>[]])?>
 
 <div id="app"></div>
 
+
 <?$templates->script_head(["js"=>['/pages/home/index']])?>
