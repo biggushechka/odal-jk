@@ -1,6 +1,6 @@
 // ---------- var global ----------
-var version = $('head').find('#versionFiles').attr('content'),
-    domain = "";
+var version = document.querySelector("meta[name='version']").getAttribute("content"),
+    domain = document.querySelector("meta[name='namesite']").getAttribute("content");
 
 // ---------- import ----------
 $.ajax({ // modal
@@ -27,8 +27,6 @@ $.ajax({ // quiz
     dataType: "script"
 });
 
-getDomain();
-
 // *** Сразу, после загрузки сайта ***
 // $(document).ready(function () {
 // initQuiz();
@@ -48,25 +46,9 @@ $(function () {
     }, 2000)
 })
 
-
-
 $(document).ready(function () {
     $(".phone").mask('+7 (999)-999-99-99');
 });
-
-function getDomain() {
-    const url = document.URL;
-
-    console.log("url:", url)
-
-    if (url == "http://odal/") {
-        domain = "alba-del-mare";
-    } else {
-        domain = url.split("//")[1].split(".")[0];
-    }
-
-    console.log("domain:", domain)
-}
 
 function mergeJson(json1, json2) {
     for(var i in json1){

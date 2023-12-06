@@ -12,16 +12,8 @@ class Templates {
         $root = $_SERVER['DOCUMENT_ROOT'];
 
         // получаем домен (имя) сайта
-        $parts = explode(".", $_SERVER['HTTP_HOST']);
-
-        echo "parts: ".$parts[0];
-//        echo "domain: ".$_SERVER['HTTP_HOST'];
-
-        if ($_SERVER['HTTP_HOST'] == 'odal') {
-            $this->domain = "alba-del-mare";
-        } else {
-            $this->domain = $parts[0];
-        }
+        $this->domain = explode(".", $_SERVER['HTTP_HOST'])[0];
+        if ($this->domain == "odal") $this->domain = "alba-del-mare";
 
         // получаем данные по сайту
         $jsonData = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/ajax/" . $this->domain . "/jk.json");
@@ -60,7 +52,8 @@ class Templates {
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-    <meta name="version" content="<?=$this->v?>" id="versionFiles">
+    <meta name="version" content="<?=$this->v?>">
+    <meta name="namesite" content="<?=$this->title?>">
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="/static/favicon.svg?v=<?=$this->v?>">
