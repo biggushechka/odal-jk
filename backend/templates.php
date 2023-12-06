@@ -16,20 +16,18 @@ class Templates {
         $host = parse_url($url, PHP_URL_HOST);
         $parts = explode(".", $host);
 
+        echo "domain: ".$_SERVER['HTTP_HOST'];
+
         if ($_SERVER['HTTP_HOST'] == 'odal') {
             $this->domain = "alba-del-mare";
         } else {
             $this->domain = $parts[0];
         }
 
-
-
-
         // получаем данные по сайту
         $jsonData = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/ajax/" . $this->domain . "/jk.json");
         $data = json_decode($jsonData, true);
         $this->title = $data['title'];
-        echo $this->title;
 
         $this->file_ver = 1;
         if(!is_dir($root."/backend")) mkdir($root."/backend/version.txt");
