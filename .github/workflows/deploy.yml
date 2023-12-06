@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - main
+      - master
 
 env:
   SERVER_HOST: 188.127.225.100
@@ -34,9 +34,9 @@ jobs:
           key: ${{secrets.KEY}}
           script: |
             cd ${{env.SERVER_PATH}}/ayu-dag.ru;
-            git checkout main;
-            git pull origin main;
+            git checkout master;
+            git pull origin master;
             
             cd ${{env.SERVER_PATH}}/darsan-apartments.ru;
-            git checkout main;
-            git pull origin main;
+            git checkout master;
+            git pull origin master;
