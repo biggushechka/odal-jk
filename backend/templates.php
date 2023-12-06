@@ -34,6 +34,7 @@ class Templates {
             $this->v = mt_rand(10000, 99999999);
         } else {
             $this->v = file_get_contents($root."/backend/version.txt");
+            $this->v = preg_replace('/^\h*\v+/m', '', $this->v);
 
             clearCash($root . "/assets", $this->v);
             clearCash($root . "/components", $this->v);
