@@ -9,15 +9,12 @@ class Templates {
         $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
         $host = parse_url($url, PHP_URL_HOST);
         $parts = explode(".", $host);
-        $domain = $parts[1];
+        $domain = $parts[0];
 
         if ($domain == "") {
             echo "empty";
         } else {
-            print_r($url);
-            print_r($host);
-            print_r($parts);
-            print_r($domain);
+            echo $domain;
         }
 
 
