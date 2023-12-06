@@ -61,6 +61,8 @@ function getDomain() {
     } else {
         domain = url.hostname.split(".")[0];
     }
+
+    console.log("domain:", domain)
 }
 
 function mergeJson(json1, json2) {
