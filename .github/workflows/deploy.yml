@@ -38,4 +38,5 @@ jobs:
             whoami
             git config user.name "biggushechka"
             git config user.email "89284483992@mail.ru"
+            git stash push --include-untracked
             git pull origin master;
