@@ -16,7 +16,7 @@ class Templates {
         $host = parse_url($url, PHP_URL_HOST);
         $parts = explode(".", $host);
 
-        if ($this->domain == "") {
+        if ($_SERVER['HTTP_HOST'] == 'odal') {
             $this->domain = "alba-del-mare";
         } else {
             $this->domain = $parts[0];
