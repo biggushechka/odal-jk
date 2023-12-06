@@ -35,4 +35,6 @@ jobs:
           script: |
             cd ${{env.SERVER_PATH}}/ayu-dag.ru;
             git checkout master;
+            git stash
+            git stash drop
             git pull origin master;
