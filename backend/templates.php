@@ -26,6 +26,7 @@ class Templates {
         $jsonData = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/ajax/" . $this->domain . "/jk.json");
         $data = json_decode($jsonData, true);
         $this->title = $data['title'];
+        echo $this->title;
 
         $this->file_ver = 1;
         if(!is_dir($root."/backend")) mkdir($root."/backend/version.txt");
