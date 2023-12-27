@@ -20,6 +20,7 @@ class Templates {
     function __getDomain() {
         // Получаем схему (http или https)
         $scheme = $_SERVER['REQUEST_SCHEME'];
+        echo $scheme;
         // Получаем доменное имя сервера
         $host = $_SERVER['HTTP_HOST'];
         // Получаем путь от корневой директории до текущего скрипта
