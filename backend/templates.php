@@ -18,21 +18,12 @@ class Templates {
     }
 
     function __getDomain() {
-        // Получаем схему (http или https)
-        $scheme = $_SERVER['REQUEST_SCHEME'];
-        echo $scheme;
-        // Получаем доменное имя сервера
-        $host = $_SERVER['HTTP_HOST'];
-        // Получаем путь от корневой директории до текущего скрипта
-        $path = $_SERVER['REQUEST_URI'];
+        $protocol = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https://' : 'http://';
+        $domain = $_SERVER['HTTP_HOST'];
 
-        // Собираем полный URL
-        $url = $scheme . "://" . $host . $path;
+        $fullUrl = $protocol . $domain;
 
-        $parsedUrl = parse_url($url);
-        $baseURL = $parsedUrl['scheme'] . "://" . $parsedUrl['host'];
-
-        return $baseURL;
+        return $fullUrl;
     }
 
     function __construct() {
@@ -77,6 +68,7 @@ class Templates {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <meta version="<?=$this->v?>" domain="<?=$this->domain?>" id="configmeta">
+    <meta maxmax="<?=$this->__getDomain()?>">
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="/static/favicon.svg?v=<?=$this->v?>">
