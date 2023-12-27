@@ -1,3 +1,5 @@
+import getMetaTag from '/components/getMetaTag.js'
+import siteNotActive from '/components/siteNotActive.js'
 import Header from '/components/Header.js'
 import MainSlider from './MainSlider.js'
 import Advantages from './Advantages.js'
@@ -12,19 +14,41 @@ import Mortgage from './Mortgage.js'
 import floatBtnCallback from './floatBtnCallback.js'
 import Footer from '/components/Footer.js'
 
-const jk = ajaxRequest({url: "/ajax/"+domain+"/jk.json"});
-console.log('jk', jk);
+var generalInfoJK;
+const getGeneralInfo = XMLHttpRequestAJAX({
+    url: "https://otal-estate.ru/api/site/content/general",
+    method: "POST",
+    body: {domain: $domain}
+});
 
-Header(jk);
-MainSlider(jk);
-Advantages(jk.advantages);
-AboutProject();
-Infrastructure();
-PersonalTour();
-Quiz();
-Gallery();
-adsBanner();
-CapturePointPresent(jk.title);
-Mortgage(jk.title);
-Footer(jk);
-floatBtnCallback();
+if (getGeneralInfo.code === 200) {
+    generalInfoJK = getGeneralInfo.data;
+    console.log(generalInfoJK.title, generalInfoJK);
+
+    getMetaTag(generalInfoJK);
+
+    if (generalInfoJK.activity == "on") {
+        initSite();
+    } else if (generalInfoJK.activity == "off") {
+        siteNotActive();
+    }
+
+} else {
+    $('body').html("Такого сайта не существует");
+}
+
+function initSite() {
+    Header(generalInfoJK);
+    MainSlider();
+    Advantages();
+    AboutProject();
+    Infrastructure();
+    PersonalTour();
+    Quiz();
+    Gallery();
+    adsBanner();
+    CapturePointPresent();
+    Mortgage();
+    Footer();
+    floatBtnCallback();
+}

@@ -2,23 +2,44 @@
 class Templates {
 
     private $v = "",
-            $domain = "",
+            $domain = "https://ayu-dag.ru",
             $title = "",
             $file_ver = "";
+
+    function __getMetaTag() {
+        $getFileContent = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/backend/meta.txt");
+
+        if ($getFileContent == "") return false;
+
+        // Преобразуем массив в формат JSON
+        $meta = json_decode($getFileContent);
+
+        $this->title = $meta->title;
+    }
+
+    function __getDomain() {
+        // Получаем схему (http или https)
+        $scheme = $_SERVER['REQUEST_SCHEME'];
+        // Получаем доменное имя сервера
+        $host = $_SERVER['HTTP_HOST'];
+        // Получаем путь от корневой директории до текущего скрипта
+        $path = $_SERVER['REQUEST_URI'];
+
+        // Собираем полный URL
+        $url = $scheme . "://" . $host . $path;
+
+        $parsedUrl = parse_url($url);
+        $baseURL = $parsedUrl['scheme'] . "://" . $parsedUrl['host'];
+
+        return $baseURL;
+    }
 
     function __construct() {
         require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/clearCash.php';
         require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/metric.php';
         $root = $_SERVER['DOCUMENT_ROOT'];
 
-        // получаем домен (имя) сайта
-        $this->domain = explode(".", $_SERVER['HTTP_HOST'])[0];
-        if ($this->domain == "odal") $this->domain = "alba-del-mare";
-
-        // получаем данные по сайту
-        $jsonData = file_get_contents($root."/ajax/".$this->domain."/jk.json");
-        $data = json_decode($jsonData, true);
-        $this->title = $data['title'];
+        $this->__getMetaTag();
 
         $this->file_ver = 1;
         if(!is_dir($root."/backend")) mkdir($root."/backend/version.txt");
@@ -33,6 +54,7 @@ class Templates {
         if ($_SERVER['HTTP_HOST'] == 'odal') {
             $this->v = mt_rand(10000, 99999999);
         } else {
+            $this->domain = $this->__getDomain();
             $getFileVersion = file($root."/backend/version.txt", FILE_IGNORE_NEW_LINES);
             $this->v = $getFileVersion[0];
 

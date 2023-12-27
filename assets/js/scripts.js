@@ -1,6 +1,6 @@
 // ---------- var global ----------
 var version = document.querySelector("#configmeta").getAttribute("version"),
-    domain = document.querySelector("#configmeta").getAttribute("domain");
+    $domain = document.querySelector("#configmeta").getAttribute("domain");
 
 
 // ---------- import ----------
@@ -41,7 +41,7 @@ $.ajax({ // quiz
 // *** По таймеру ***
 $(function () {
     setTimeout(function () {
-        if ( $('.am-modal-quiz').length == 0 ) {
+        if ( $('.am-modal-quiz').length) {
             initQuiz();
         }
     }, 2000)

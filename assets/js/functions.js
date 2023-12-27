@@ -1,29 +1,37 @@
-function ajaxRequest(data) {
-    var json;
-    $.ajax({
-        url: data.url,
-        method: (data.method == undefined && data.method == '') ? 'GET' : data.method,
-        async: false,
-        data: (data.data != undefined && data.data != '') ? data.data : '',
-    }).done(function(data) {
-        if (isJsonString(data)) {
-            data = $.parseJSON(data);
-        }
-        json = data;
-    }).fail(function(error) {
-        console.log('%c Error JSON ', 'background: red; color: #fff; border-radius: 50px;');
-    });
-
-    return json;
-}
-
-function isJsonString(str) {
-    try {
-        JSON.parse(str);
-    } catch (e) {
-        return false;
+function XMLHttpRequestAJAX(data) {
+    var sendData = {
+        url: (data.url != undefined && data.url != "") ? data.url : "",
+        method: (data.method != undefined && data.method != "") ? data.method : "GET",
+        body: (data.body != undefined && data.body != "") ? data.body : ""
     }
-    return true;
+
+    var xhr = new XMLHttpRequest();
+
+    if (sendData.method === "GET" || sendData.method === "DELETE" || sendData.method === "UPDATE") {
+        xhr.open(sendData.method, sendData.url + "?" + new URLSearchParams(sendData.body).toString(), false);
+    }
+
+    if (sendData.method === "POST") {
+        sendData.body = JSON.stringify(sendData.body);
+        xhr.open("POST", sendData.url, false);
+        xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+        xhr.setRequestHeader('Content-Type', 'text/plain');
+    }
+
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    xhr.send(sendData.body);
+
+    var getData = {};
+    getData.code = xhr.status;
+
+    try {
+        getData.data = JSON.parse(xhr.responseText);
+    } catch (error) {
+        getData.data = xhr.responseText;
+    }
+
+    return getData;
 }
 
 function checkImageExists(imageUrl) {
