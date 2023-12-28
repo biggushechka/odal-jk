@@ -68,7 +68,6 @@ class Templates {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <meta version="<?=$this->v?>" domain="<?=$this->domain?>" id="configmeta">
-    <meta maxmax="<?=$this->__getDomain()?>">
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="/static/favicon.svg?v=<?=$this->v?>">
