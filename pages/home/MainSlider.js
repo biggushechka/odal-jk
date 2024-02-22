@@ -28,7 +28,6 @@ export default function MainSlider(jk) {
             </div>
         </div>
         
-        
         <div class="apartment__fon">
             <div class="container">
                 <div class="apartment__cnt">`;
