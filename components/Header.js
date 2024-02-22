@@ -13,20 +13,18 @@ export default function Header(jk) {
                 </ul>
                 <div class="header__contact">
                     <div class="social-network">`;
-                        if (jk.socialNetwork.whatsapp != undefined && jk.socialNetwork.whatsapp != '') {
-                            var phoneWhatsApp = jk.socialNetwork.whatsapp.replace(/[\s()+-]/g, "");
-
+                        if (jk.contacts.whatsapp_phone != undefined && jk.contacts.whatsapp_phone != '') {
+                            var phoneWhatsApp = jk.contacts.whatsapp_phone.replace(/[\s()+-]/g, "");
                             html += `<a href=" https://wa.me/${phoneWhatsApp}" target="_blank" class="header__soc"><i class="whatsapp-icon"></i></a>`;
                         }
-                        if (jk.socialNetwork.telegram != undefined && jk.socialNetwork.telegram != '') {
-                            var phoneTelegram = jk.socialNetwork.telegram.replace(/[\s()]/g, "");
-
+                        if (jk.contacts.telegram_phone != undefined && jk.contacts.telegram_phone != '') {
+                            var phoneTelegram = jk.contacts.telegram_phone.replace(/[\s()]/g, "");
                             html += `<a href="https://t.me/${phoneTelegram}" target="_blank" class="header__soc"><i class="telegram-icon"></i></a>`;
                         }
                         html += `
                     </div>
                     <div>                    
-                        <a href="tel:${jk.phone}" class="header__phone">${jk.phone}</a>
+                        <a href="tel:${jk.contacts.phone}" class="header__phone">${jk.contacts.phone}</a>
                         <button type="button" class="header__request modal-callback" data-target="callback">Заказать звонок</button>
                     </div>
                 </div>
@@ -84,15 +82,15 @@ export default function Header(jk) {
             <div class="wrapper-container">
                <ul class="nav-list">${nav}</ul>
                 <div class="footer-nav">
-                    <a href="tel:${jk.phone}" class="phone">${jk.phone}</a>
+                    <a href="tel:${jk.contacts.phone}" class="phone">${jk.contacts.phone}</a>
                     <div class="social-network">`;
-                        if (jk.socialNetwork.whatsapp != undefined && jk.socialNetwork.whatsapp != '') {
-                            var phoneWhatsApp = jk.socialNetwork.whatsapp.replace(/[\s()+-]/g, "");
+                        if (jk.contacts.whatsapp_phone != undefined && jk.contacts.whatsapp_phone != '') {
+                            var phoneWhatsApp = jk.contacts.whatsapp_phone.replace(/[\s()+-]/g, "");
 
                             html += `<a href=" https://wa.me/${phoneWhatsApp}" target="_blank" class="header__soc"><i class="whatsapp-icon"></i></a>`;
                         }
-                        if (jk.socialNetwork.telegram != undefined && jk.socialNetwork.telegram != '') {
-                            var phoneTelegram = jk.socialNetwork.telegram.replace(/[\s()]/g, "");
+                        if (jk.contacts.telegram_phone != undefined && jk.contacts.telegram_phone != '') {
+                            var phoneTelegram = jk.contacts.telegram_phone.replace(/[\s()]/g, "");
 
                             html += `<a href="https://t.me/${phoneTelegram}" target="_blank" class="header__soc"><i class="telegram-icon"></i></a>`;
                         }

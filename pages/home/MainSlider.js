@@ -1,6 +1,19 @@
 export default function MainSlider(jk) {
 
-    const sliderGallery = ajaxRequest({url: "/ajax/"+domain+"/MainSlider.json"});
+    var sliderGallery = [];
+    const getSliderGallery = XMLHttpRequestAJAX({
+        url: "https://otal-estate.ru/api/site/content/gallery",
+        method: "POST",
+        body: {
+            id_site: jk.id_site,
+            album: "main"
+        }
+    });
+    console.log("getSliderGallery", getSliderGallery);
+
+    if (getSliderGallery.code === 200) {
+        sliderGallery = getSliderGallery.data;
+    }
 
     var html = `
     <section class="apartment__main">
@@ -9,8 +22,8 @@ export default function MainSlider(jk) {
                 <div class="swiper-wrapper">`;
 
                     for (var item in sliderGallery) {
-                        var photo = sliderGallery[item],
-                            url = (checkImageExists(photo.path) != false && photo.path != '') ? photo.path : '/assets/img/photo-nan.jpg';
+                        var image = sliderGallery[item],
+                            url = image.image;
 
                         html += `
                         <div class="swiper-slide">
@@ -30,22 +43,27 @@ export default function MainSlider(jk) {
         
         <div class="apartment__fon">
             <div class="container">
-                <div class="apartment__cnt">`;
-                    if (jk.params != undefined && jk.params.length != 0) {
-                        html += `
-                        <div class="params-container">`;
-                            for (var param in jk.params) {
-                                var item = jk.params[param];
-                                html += `
-                                <div class="item">
-                                    <p>${item.title}: </p>
-                                    <span>${item.value}</span>
-                                </div>`;
-                            }
-                            html += `
-                        </div>`;
-                    }
-                    html += `
+                <div class="apartment__cnt">
+                    
+                    <div class="params-container">
+                        <div class="item">
+                            <p>Класс: </p>
+                            <span>${jk.parameters.class}</span>
+                        </div>
+                        <div class="item">
+                            <p>Площадь: </p>
+                            <span>от ${jk.parameters.area_apartments_from} до ${jk.parameters.area_apartments_to} м2</span>
+                        </div>
+                        <div class="item">
+                            <p>Отделка: </p>
+                            <span>${jk.parameters.finishing}</span>
+                        </div>
+                        <div class="item">
+                            <p>Этажность: </p>
+                            <span>от ${jk.parameters.floors_from} до ${jk.parameters.floors_to}</span>
+                        </div>
+                    </div>
+    
                     <div class="apartment__info">
                         <span>ВАШ НОВЫЙ ОБРАЗ ЖИЗНИ</span>
                         <h1>

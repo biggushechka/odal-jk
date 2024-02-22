@@ -39,16 +39,16 @@ if (getGeneralInfo.code === 200) {
 
 function initSite() {
     Header(generalInfoJK);
-    MainSlider();
-    Advantages();
-    AboutProject();
-    Infrastructure();
-    PersonalTour();
-    Quiz();
-    Gallery();
-    adsBanner();
-    CapturePointPresent();
-    Mortgage();
-    Footer();
-    floatBtnCallback();
+    MainSlider(generalInfoJK);
+    // Advantages();
+    // AboutProject();
+    // Infrastructure();
+    // PersonalTour();
+    // Quiz();
+    // Gallery();
+    // adsBanner();
+    // CapturePointPresent();
+    // Mortgage();
+    // Footer();
+    // floatBtnCallback();
 }

@@ -18,20 +18,12 @@ class Templates {
     }
 
     function __getDomain() {
-        // Получаем схему (http или https)
-        $scheme = $_SERVER['REQUEST_SCHEME'];
-        // Получаем доменное имя сервера
-        $host = $_SERVER['HTTP_HOST'];
-        // Получаем путь от корневой директории до текущего скрипта
-        $path = $_SERVER['REQUEST_URI'];
+        $protocol = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https://' : 'http://';
+        $domain = $_SERVER['HTTP_HOST'];
 
-        // Собираем полный URL
-        $url = $scheme . "://" . $host . $path;
+        $fullUrl = $protocol . $domain;
 
-        $parsedUrl = parse_url($url);
-        $baseURL = $parsedUrl['scheme'] . "://" . $parsedUrl['host'];
-
-        return $baseURL;
+        return $fullUrl;
     }
 
     function __construct() {
