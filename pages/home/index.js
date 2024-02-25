@@ -40,7 +40,7 @@ if (getGeneralInfo.code === 200) {
 function initSite() {
     Header(generalInfoJK);
     MainSlider(generalInfoJK);
-    // Advantages();
+    Advantages();
     // AboutProject();
     // Infrastructure();
     // PersonalTour();

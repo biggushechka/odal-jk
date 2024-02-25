@@ -1,4 +1,14 @@
-export default function Advantages(advantages) {
+export default function Advantages() {
+    const getAdvantages = XMLHttpRequestAJAX({
+        url: "https://otal-estate.ru/api/site/content/advantages",
+        method: "POST",
+        body: {domain: $domain}
+    });
+
+    console.log("преимещества", getAdvantages);
+
+    return false;
+
     var html = `
     <section class="advantages__main">
         <div class="container">
