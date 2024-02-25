@@ -15,10 +15,13 @@ import floatBtnCallback from './floatBtnCallback.js'
 import Footer from '/components/Footer.js'
 
 var generalInfoJK;
+
 const getGeneralInfo = XMLHttpRequestAJAX({
-    url: "https://otal-estate.ru/api/site/content/general",
-    method: "POST",
-    body: {domain: $domain}
+    url: "https://otal-estate.ru/api/site/content",
+    method: "GET",
+    body: {
+        content: "advantages"
+    }
 });
 
 if (getGeneralInfo.code === 200) {
