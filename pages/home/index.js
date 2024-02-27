@@ -35,9 +35,6 @@ if (getGeneralInfo.code === 200) {
     } else if (generalInfoJK.activity == "off") {
         siteNotActive();
     }
-
-} else {
-    $('body').html("Такого сайта не существует");
 }
 
 function initSite() {
