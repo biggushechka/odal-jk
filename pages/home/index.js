@@ -17,7 +17,7 @@ import Footer from '/components/Footer.js'
 var generalInfoJK;
 
 const getGeneralInfo = XMLHttpRequestAJAX({
-    url: "https://otal-estate.ru/api/site/content",
+    url: "https://otal-estate.ru/api/site/content/get",
     method: "GET",
     body: {
         content: "advantages"
