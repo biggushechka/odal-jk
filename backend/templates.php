@@ -89,7 +89,6 @@ class Templates {
     }
 
     getMetric($this->domain);
-
     ?>
 
 </head>
