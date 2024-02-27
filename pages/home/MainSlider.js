@@ -2,11 +2,10 @@ export default function MainSlider(jk) {
 
     var sliderGallery = [];
     const getSliderGallery = XMLHttpRequestAJAX({
-        url: "https://otal-estate.ru/api/site/content/gallery",
+        url: "https://otal-estate.ru/api/site/content/get",
         method: "POST",
         body: {
-            id_site: jk.id_site,
-            album: "main"
+            content: "gallery"
         }
     });
     console.log("getSliderGallery", getSliderGallery);
