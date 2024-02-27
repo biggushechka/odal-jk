@@ -20,7 +20,7 @@ const getGeneralInfo = XMLHttpRequestAJAX({
     url: "https://otal-estate.ru/api/site/content/get",
     method: "GET",
     body: {
-        content: "global2"
+        content: "global"
     }
 });
 
