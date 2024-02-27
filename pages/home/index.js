@@ -17,10 +17,10 @@ import Footer from '/components/Footer.js'
 var generalInfoJK;
 
 const getGeneralInfo = XMLHttpRequestAJAX({
-    url: "https://otal-estate.ru/api/site/content/get",
+    url: "https://otal-estate.ru/api/site/content/index",
     method: "GET",
     body: {
-        content: "advantages"
+        content: "global"
     }
 });
 

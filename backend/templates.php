@@ -26,6 +26,7 @@ class Templates {
         return $fullUrl;
     }
 
+
     function __construct() {
         require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/clearCash.php';
         require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/metric.php';
