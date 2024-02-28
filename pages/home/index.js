@@ -1,4 +1,3 @@
-import getMetaTag from '/components/getMetaTag.js'
 import siteNotActive from '/components/siteNotActive.js'
 import Header from '/components/Header.js'
 import MainSlider from './MainSlider.js'
