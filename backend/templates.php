@@ -13,14 +13,10 @@ class Templates {
         } else {
             require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/clearCash.php';
 
-            $getFileVersion = file($root."/backend/version.txt", FILE_IGNORE_NEW_LINES);
-            $this->v = $getFileVersion[0];
-
             clearCash($root . "/assets", $this->v);
             clearCash($root . "/components", $this->v);
             clearCash($root . "/pages", $this->v);
             clearCash($root . "/plugins/modal", $this->v);
-            file_put_contents($root."/backend/version.txt", $this->v);
         }
     }
 
