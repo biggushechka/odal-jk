@@ -30,7 +30,7 @@ if (getGeneralInfo.code === 200) {
 
     if (generalInfoJK.activity == "on") {
         initSite();
-    } else if (generalInfoJK.activity == "off") {
+    } else {
         siteNotActive();
     }
 }
