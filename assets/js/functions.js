@@ -41,6 +41,18 @@ function checkImageExists(imageUrl) {
     return http.status != 404;
 }
 
+// импорт компонента js
+function importComponent(path, data) {
+    path = (path != "" && path != undefined) ? path : "/nan";
+    data = (data != "" && data != undefined) ? data : "";
+
+    import(`${path}?v=${version}`).then(function (obj) {
+        obj.default(data);
+    }).catch(function (error) {
+        console.error('%c ERROR: import JS ', 'background: red; color: #fff; border-radius: 50px;', error);
+    });
+}
+
 function ModalCallBack(target) {
     import("/components/ModalCallback.js?v="+version).then(function(obj) {
         obj.default(target);

@@ -2,52 +2,17 @@
 class Templates {
 
     private $v = "",
-            $domain = "https://ayu-dag.ru",
             $title = "",
             $file_ver = "";
 
-    function __getMetaTag() {
-        $getFileContent = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/backend/meta.txt");
-
-        if ($getFileContent == "") return false;
-
-        // Преобразуем массив в формат JSON
-        $meta = json_decode($getFileContent);
-
-        $this->title = $meta->title;
-    }
-
-    function __getDomain() {
-        $protocol = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https://' : 'http://';
-        $domain = $_SERVER['HTTP_HOST'];
-
-        $fullUrl = $protocol . $domain;
-
-        return $fullUrl;
-    }
-
-
     function __construct() {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/clearCash.php';
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/metric.php';
         $root = $_SERVER['DOCUMENT_ROOT'];
-
-        $this->__getMetaTag();
-
-        $this->file_ver = 1;
-        if(!is_dir($root."/backend")) mkdir($root."/backend/version.txt");
-        if(is_file($root."/backend/version.txt")){
-            $this->file_ver = file_get_contents($root."/backend/version.txt");
-            if($this->file_ver == $this->v)
-                $this->file_ver = 0;
-        } else {
-            $this->file_ver = 1;
-        }
 
         if ($_SERVER['HTTP_HOST'] == 'odal') {
             $this->v = mt_rand(10000, 99999999);
         } else {
-            $this->domain = $this->__getDomain();
+            require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/clearCash.php';
+
             $getFileVersion = file($root."/backend/version.txt", FILE_IGNORE_NEW_LINES);
             $this->v = $getFileVersion[0];
 
@@ -68,7 +33,7 @@ class Templates {
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-    <meta version="<?=$this->v?>" domain="<?=$this->domain?>" id="configmeta">
+    <meta version="<?=$this->v?>" domain="" id="configmeta">
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="/static/favicon.svg?v=<?=$this->v?>">
@@ -87,8 +52,6 @@ class Templates {
             }
         }
     }
-
-    getMetric($this->domain);
     ?>
 
 </head>
