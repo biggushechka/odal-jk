@@ -28,8 +28,6 @@ if (getGeneralInfo.code === 200) {
     generalInfoJK = getGeneralInfo.data;
     console.log(generalInfoJK.title, generalInfoJK);
 
-    getMetaTag(generalInfoJK);
-
     if (generalInfoJK.activity == "on") {
         initSite();
     } else if (generalInfoJK.activity == "off") {
