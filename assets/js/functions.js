@@ -7,6 +7,10 @@ function XMLHttpRequestAJAX(data) {
 
     var xhr = new XMLHttpRequest();
 
+    if (sendData.method === "GET") {
+        sendData.body['domain'] = "alba-del-mare.ru";
+    }
+
     if (sendData.method === "GET" || sendData.method === "DELETE" || sendData.method === "UPDATE") {
         xhr.open(sendData.method, sendData.url + "?" + new URLSearchParams(sendData.body).toString(), false);
     }

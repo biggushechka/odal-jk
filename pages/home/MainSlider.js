@@ -3,9 +3,9 @@ export default function MainSlider(jk) {
     var sliderGallery = [];
     const getSliderGallery = XMLHttpRequestAJAX({
         url: "https://otal-estate.ru/api/site/content/get",
-        method: "POST",
+        method: "GET",
         body: {
-            content: "gallery"
+            content: "mainSlider"
         }
     });
     console.log("getSliderGallery", getSliderGallery);
