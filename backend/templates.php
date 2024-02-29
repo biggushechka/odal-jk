@@ -2,13 +2,12 @@
 class Templates {
 
     private $v = "",
-            $title = "",
-            $file_ver = "";
+            $title = "";
 
     function __construct() {
         $root = $_SERVER['DOCUMENT_ROOT'];
 
-        if ($_SERVER['HTTP_HOST'] == 'odal') {
+        if ($_SERVER['HTTP_HOST'] == 'odal-jk') {
             $this->v = mt_rand(10000, 99999999);
         } else {
             require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/clearCash.php';
