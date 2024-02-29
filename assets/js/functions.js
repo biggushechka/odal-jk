@@ -7,7 +7,7 @@ function XMLHttpRequestAJAX(data) {
 
     var xhr = new XMLHttpRequest();
 
-    if (sendData.method === "GET") {
+    if (sendData.method === "GET" && window.location.hostname === "odal-jk") {
         sendData.body['domain'] = "alba-del-mare.ru";
     }
 
