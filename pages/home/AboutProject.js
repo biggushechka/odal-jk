@@ -18,9 +18,9 @@ export default function AboutProject() {
 
     var aboutTitle = (aboutJK.about.title != undefined && aboutJK.about.title != '') ? aboutJK.about.title : `<span style="color: red;">????????</span>`,
         aboutDesc = (aboutJK.about.desc != undefined && aboutJK.about.desc != '') ? aboutJK.about.desc : `<span style="color: red;">????????</span>`,
-        secondaryTitle = (aboutJK.territory.title != undefined && aboutJK.territory.title != '') ? aboutJK.territory.title : `<span style="color: red;">????????</span>`,
-        secondaryDesc = (aboutJK.territory.desc != undefined && aboutJK.territory.desc != '') ? aboutJK.territory.desc : `<span style="color: red;">????????</span>`,
-        photo = (checkImageExists(aboutJK.photo) != false && aboutJK.photo != '') ? aboutJK.photo : '/assets/img/photo-nan.jpg';
+        territoryTitle = (aboutJK.territory.title != undefined && aboutJK.territory.title != '') ? aboutJK.territory.title : `<span style="color: red;">????????</span>`,
+        territoryDesc = (aboutJK.territory.desc != undefined && aboutJK.territory.desc != '') ? aboutJK.territory.desc : `<span style="color: red;">????????</span>`,
+        aboutPhoto = (aboutJK.about.photo != undefined && aboutJK.about.photo != '') ? aboutJK.about.photo : '/assets/img/photo-nan.jpg';
 
     var html = `
     <section class="business__main" data-section="aboutjk">
@@ -37,10 +37,10 @@ export default function AboutProject() {
                 </div>
             </div>
             <div class="territory__har">
-                <div class="territory__photo" style="background-image: url(${photo})"></div>
+                <div class="territory__photo" style="background-image: url(${aboutPhoto})"></div>
                 <div class="territory__info">
-                    <h3>${secondaryTitle}</h3>
-                    <p>${secondaryDesc}</p>
+                    <h3>${territoryTitle}</h3>
+                    <p>${territoryDesc}</p>
                     <button type="button" class="btn modal-callback" data-target="viewing">записаться на просмотр</button>
                 </div>
             </div>`;

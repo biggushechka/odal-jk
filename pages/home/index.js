@@ -29,6 +29,7 @@ if (getGeneralInfo.code === 200) {
     console.log(generalInfoJK.title, generalInfoJK);
 
     if (generalInfoJK.activity == "on") {
+        getMeta();
         initSite();
     } else {
         siteNotActive();
@@ -49,4 +50,24 @@ function initSite() {
     // Mortgage();
     // Footer();
     // floatBtnCallback();
+}
+
+function getMeta() {
+    const getMeta = XMLHttpRequestAJAX({
+        url: "https://otal-estate.ru/api/site/content/get",
+        method: "GET",
+        body: {
+            content: "meta"
+        }
+    });
+
+    if (getMeta.code == 200) {
+        var meta = getMeta.data;
+
+        const sendMeta = XMLHttpRequestAJAX({
+            url: "/backend/getMeta.php",
+            method: "POST",
+            body: meta
+        });
+    }
 }

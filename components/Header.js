@@ -18,7 +18,7 @@ export default function Header(jk) {
                             html += `<a href=" https://wa.me/${phoneWhatsApp}" target="_blank" class="header__soc"><i class="whatsapp-icon"></i></a>`;
                         }
                         if (jk.contacts.telegram_phone != undefined && jk.contacts.telegram_phone != '') {
-                            var phoneTelegram = jk.contacts.telegram_phone.replace(/[\s()]/g, "");
+                            var phoneTelegram = jk.contacts.telegram_phone.replace(/[^0-9+]/g, "");
                             html += `<a href="https://t.me/${phoneTelegram}" target="_blank" class="header__soc"><i class="telegram-icon"></i></a>`;
                         }
                         html += `

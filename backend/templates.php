@@ -2,7 +2,8 @@
 class Templates {
 
     private $v = "",
-            $title = "";
+            $title = "",
+            $meta;
 
     function __construct() {
         $root = $_SERVER['DOCUMENT_ROOT'];
@@ -19,6 +20,13 @@ class Templates {
             clearCash($root . "/components", $this->v);
             clearCash($root . "/pages", $this->v);
             clearCash($root . "/plugins/modal", $this->v);
+        }
+
+        if (file_exists($root . "/meta.txt")) {
+            require_once $root . "/backend/outputMeta.php";
+
+            $this->title = $meta->title;
+            $this->meta = $meta->meta;
         }
     }
 
@@ -41,6 +49,14 @@ class Templates {
 
     <link rel="stylesheet" href="/plugins/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="/assets/css/style.css?v=<?=$this->v?>">
+
+    <?
+        if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/meta.txt")) {
+            foreach ($this->meta as $metaItem) {
+                echo $metaItem["code"] . "\n";
+            }
+        }
+    ?>
 
     <?} public function links_head($arr=array()) {
         if (isset($arr['css'])) {

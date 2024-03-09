@@ -19,3 +19,4 @@ logs
 
 #ngnix
 *.conf
+meta.txt
