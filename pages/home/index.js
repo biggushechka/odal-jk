@@ -39,7 +39,7 @@ function initSite() {
     Header(generalInfoJK);
     MainSlider(generalInfoJK);
     Advantages();
-    // AboutProject();
+    AboutProject();
     // Infrastructure();
     // PersonalTour();
     // Quiz();

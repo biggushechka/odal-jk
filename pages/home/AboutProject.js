@@ -1,11 +1,25 @@
 export default function AboutProject() {
 
-    const aboutJK = ajaxRequest({url: "/ajax/"+domain+"/AboutJK.json"});
+    let aboutJK = XMLHttpRequestAJAX({
+        url: "https://otal-estate.ru/api/site/content/get",
+        method: "GET",
+        body: {
+            content: "about"
+        }
+    });
 
-    var indexTitle = (aboutJK.index.title != undefined && aboutJK.index.title != '') ? aboutJK.index.title : `<span style="color: red;">????????</span>`,
-        indexDesc = (aboutJK.index.desc != undefined && aboutJK.index.desc != '') ? aboutJK.index.desc : `<span style="color: red;">????????</span>`,
-        secondaryTitle = (aboutJK.secondary.title != undefined && aboutJK.secondary.title != '') ? aboutJK.secondary.title : `<span style="color: red;">????????</span>`,
-        secondaryDesc = (aboutJK.secondary.desc != undefined && aboutJK.secondary.desc != '') ? aboutJK.secondary.desc : `<span style="color: red;">????????</span>`,
+    console.log("О проекте", aboutJK)
+
+    if (aboutJK.code === 200) {
+        aboutJK = aboutJK.data;
+    } else {
+        return false;
+    }
+
+    var aboutTitle = (aboutJK.about.title != undefined && aboutJK.about.title != '') ? aboutJK.about.title : `<span style="color: red;">????????</span>`,
+        aboutDesc = (aboutJK.about.desc != undefined && aboutJK.about.desc != '') ? aboutJK.about.desc : `<span style="color: red;">????????</span>`,
+        secondaryTitle = (aboutJK.territory.title != undefined && aboutJK.territory.title != '') ? aboutJK.territory.title : `<span style="color: red;">????????</span>`,
+        secondaryDesc = (aboutJK.territory.desc != undefined && aboutJK.territory.desc != '') ? aboutJK.territory.desc : `<span style="color: red;">????????</span>`,
         photo = (checkImageExists(aboutJK.photo) != false && aboutJK.photo != '') ? aboutJK.photo : '/assets/img/photo-nan.jpg';
 
     var html = `
@@ -17,8 +31,8 @@ export default function AboutProject() {
                 </div>
                 <div class="business__descript">
                     <span>описание</span>
-                    <h2>${indexTitle}</h2>
-                    <p>${indexDesc}</p>
+                    <h2>${aboutTitle}</h2>
+                    <p>${aboutDesc}</p>
                     <button type="button" class="button modal-callback" data-target="presentation">скачать презентацию</button>
                 </div>
             </div>
@@ -30,25 +44,8 @@ export default function AboutProject() {
                     <button type="button" class="btn modal-callback" data-target="viewing">записаться на просмотр</button>
                 </div>
             </div>`;
-            if (aboutJK.accessibility.length != 0) {
-                html += `
-                <div class="busin-terr__flex">`;
-                    for (var i in aboutJK.accessibility) {
-                        var item = aboutJK.accessibility[i],
-                            count = (item.count != undefined && item.count != '') ? item.count : `<span style="color: red;">??</span>`,
-                            title = (item.title != undefined && item.title != '') ? item.title : `<span style="color: red;">????????</span>`,
-                            desc = (item.desc != undefined && item.desc != '') ? item.desc : `<span style="color: red;">????????</span>`;
 
-                        html += `
-                        <div class="busin-terr__data">
-                            <strong>${count}</strong>
-                            <small>${title}</small>
-                            <span>${desc}</span>
-                        </div>`;
-                    }
-                    html += `    
-                </div>`;
-            }
+
             html += `
         </div>
     </section>`;
