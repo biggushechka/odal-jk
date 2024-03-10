@@ -1,16 +1,9 @@
 export default function PersonalTour() {
-
-    const PersonalTour = ajaxRequest({url: "/ajax/"+domain+"/PersonalTour.json"});
-    
-    var title = (PersonalTour.title != undefined && PersonalTour.title != '') ? PersonalTour.title : `<span style="color: red;">????????</span>`,
-        desc = (PersonalTour.desc != undefined && PersonalTour.desc != '') ? PersonalTour.desc : `<span style="color: red;">????????</span>`,
-        photo = (checkImageExists(PersonalTour.photo) != false && PersonalTour.photo != '') ? PersonalTour.photo : '/assets/img/photo-nan.jpg';
-    
     var html = `
-    <section class="private-village" style="background-image: url(${photo})">
+    <section class="private-village" style="background-image: url()">
         <div class="private-village__cnt">
-            <h2>${title}</h2>
-            <p>${desc}</p>
+            <h2>Запишитесь на персональную экскурсию по поселку</h2>
+            <p>Мы покажем вам готовые и строящиеся дома, парки и близлежащую инфраструктуру</p>
             <form>
                 <div class="private-village__form">
                     <div class="form-input">

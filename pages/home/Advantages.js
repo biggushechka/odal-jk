@@ -6,7 +6,6 @@ export default function Advantages() {
             content: "advantages"
         }
     });
-    console.log("преимещества", getAdvantages);
 
     if (getAdvantages.code === 200) {
         getAdvantages = getAdvantages.data;

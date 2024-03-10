@@ -1,9 +1,18 @@
 export default function Infrastructure() {
 
-    const infrastructure = ajaxRequest({url: "/ajax/"+domain+"/Infrastructure.json"});
+    let infrastructure = XMLHttpRequestAJAX({
+        url: "https://otal-estate.ru/api/site/content/get",
+        method: "GET",
+        body: {
+            content: "infrastructure"
+        }
+    });
 
-    var titleSection = (infrastructure.title != undefined && infrastructure.title != '') ? infrastructure.title : `<span style="color: red;">????????</span>`,
-        descSection = (infrastructure.desc != undefined && infrastructure.desc != '') ? infrastructure.desc : `<span style="color: red;">????????</span>`;
+    if (infrastructure.code === 200) {
+        infrastructure = infrastructure.data;
+    } else {
+        return false;
+    }
 
     var html = `
     <section id="resid" class="residents__main" data-section="infrastructure">
@@ -14,32 +23,28 @@ export default function Infrastructure() {
                 </div>
                 <div class="residents__info">
                     <span>инфраструктура</span>
-                    <h2>${titleSection}</h2>
+                    <h2>Специальные условия для будущих жителей</h2>
                     <div class="residents__fl">
-                        <p>${descSection}</p>
+                        <p>Уникальный формат жилья, который объединяет в себе преимущества комфортных городских студий и просторных загородных домов.</p>
                         <button type="button" class="button modal-callback" data-target="presentation">Скачать презентацию</button>
                     </div>
                 </div>
             </div>
         </div>
         
-        <div class="residents__src">
-            <div class="swiper residents__slider container" id="infrastructure-slider">
+        <div class="residents__src container">
+            <div class="swiper residents__slider" id="infrastructure-slider">
                 <div class="swiper-wrapper">`;
-
-                if (infrastructure.slides.length != 0) {
-                    for (var item in infrastructure.slides) {
-                        var slide = infrastructure.slides[item],
-                            title = (slide.title != undefined && slide.title != '') ? slide.title : `<span style="color: red;">????????</span>`,
-                            desc = (slide.desc != undefined && slide.desc != '') ? slide.desc : `<span style="color: red;">????????</span>`,
-                            photo = (checkImageExists(slide.photo) != false && slide.photo != '') ? slide.photo : '/assets/img/photo-nan.jpg';
+                if (infrastructure.length != 0) {
+                    for (var item in infrastructure) {
+                        var slide = infrastructure[item];
 
                         html += `
                         <div class="swiper-slide">
-                            <div class="residents__block" style="background-image: url(${photo})">
+                            <div class="residents__block" style="background-image: url(${slide.photo})">
                                 <span></span>
-                                <strong>${title}</strong>
-                                <p>${desc}</p>
+                                <strong>${slide.title}</strong>
+                                <p>${slide.description}</p>
                             </div>
                         </div>`;
                     }
@@ -69,11 +74,12 @@ export default function Infrastructure() {
 
 
     new Swiper("#infrastructure-slider", {
-        loop: true,
+        loop: false,
+        slidesPerView: 3,
         spaceBetween: 30,
         breakpoints: {
             '1500': {
-                slidesPerView: 4,
+                slidesPerView: 3,
                 slidesPerGroup: 1,
             },
             '991': {
@@ -102,8 +108,8 @@ export default function Infrastructure() {
             },
         },
         navigation: {
-            nextEl: "#infstr-btn-prev",
-            prevEl: "#infstr-btn-next",
+            nextEl: "#infstr-btn-next",
+            prevEl: "#infstr-btn-prev",
         },
         pagination: {
             el: "#infstr-swiper-pagination",

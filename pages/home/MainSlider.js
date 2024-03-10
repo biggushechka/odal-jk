@@ -8,7 +8,6 @@ export default function MainSlider(jk) {
             content: "mainSlider"
         }
     });
-    console.log("getSliderGallery", getSliderGallery);
 
     if (getSliderGallery.code === 200) {
         sliderGallery = getSliderGallery.data;

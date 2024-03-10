@@ -8,8 +8,6 @@ export default function AboutProject() {
         }
     });
 
-    console.log("О проекте", aboutJK)
-
     if (aboutJK.code === 200) {
         aboutJK = aboutJK.data;
     } else {

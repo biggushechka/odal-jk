@@ -41,10 +41,10 @@ function initSite() {
     MainSlider(generalInfoJK);
     Advantages();
     AboutProject();
-    // Infrastructure();
-    // PersonalTour();
+    Infrastructure();
+    PersonalTour();
     // Quiz();
-    // Gallery();
+    Gallery();
     // adsBanner();
     // CapturePointPresent();
     // Mortgage();

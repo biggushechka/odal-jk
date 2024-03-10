@@ -1,8 +1,18 @@
 export default function Gallery() {
 
-    const gallery = ajaxRequest({url: "/ajax/"+domain+"/Gallery.json"});
+    let gallery = XMLHttpRequestAJAX({
+        url: "https://otal-estate.ru/api/site/content/get",
+        method: "GET",
+        body: {
+            content: "gallery"
+        }
+    });
 
-    if (gallery.length == 0) return false;
+    if (gallery.code === 200) {
+        gallery = gallery.data;
+    } else {
+        return false;
+    }
 
     var html = `
     <section class="gallery-jk" data-section="gallery">
