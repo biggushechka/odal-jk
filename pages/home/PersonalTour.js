@@ -1,8 +1,8 @@
 export default function PersonalTour() {
     var html = `
-    <section class="private-village" style="background-image: url()">
+    <section class="private-village" style="background-image: url(/assets/img/personalTour.webp)">
         <div class="private-village__cnt">
-            <h2>Запишитесь на персональную экскурсию по поселку</h2>
+            <h2>Запишитесь на персональную экскурсию</h2>
             <p>Мы покажем вам готовые и строящиеся дома, парки и близлежащую инфраструктуру</p>
             <form>
                 <div class="private-village__form">

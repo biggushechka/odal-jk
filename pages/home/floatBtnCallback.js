@@ -1,4 +1,4 @@
-export default function floatBtnCallback() {
+export default function floatBtnCallback(jk) {
     var html = `
     <div class="P-float-btn-callback">
         <div class="wrapper-container">
@@ -9,6 +9,6 @@ export default function floatBtnCallback() {
     $('#app').append(html);
 
     html.on('click', function () {
-        ModalThrough();
+        ModalThrough(jk);
     });
 }

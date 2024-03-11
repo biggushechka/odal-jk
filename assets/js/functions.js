@@ -65,9 +65,9 @@ function ModalCallBack(target) {
     });
 }
 
-function ModalThrough() {
+function ModalThrough(data) {
     import("/components/ModalThrough.js?v="+version).then(function(obj) {
-        obj.default();
+        obj.default(data);
     }).catch(function(err) {
         console.log('catch', err);
     });

@@ -19,12 +19,12 @@ export default function Footer(jk) {
                         <div class="footer__menu">
                             <strong>Контакты</strong>
                             <div class="footer__call">
-                                <a href="#" class="tel:${jk.phone}">${jk.phone}</a>
+                                <a href="#" class="tel:${jk.contacts.phone}">${jk.contacts.phone}</a>
                                 <p>пн-пт с 09 до 21</p>
                             </div>
                             <div class="footer__mail">
                                 <span>Электронная почта:</span>
-                                <a href="mailto:${jk.email}" class="mailto:info@sitename.ru">${jk.email}</a>
+                                <a href="mailto:${jk.contacts.email}" class="mailto:${jk.contacts.email}">${jk.contacts.email}</a>
                             </div>
                             <div class="footer__adres">
                                 <span>Адрес:</span>
