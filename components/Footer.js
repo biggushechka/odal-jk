@@ -28,7 +28,7 @@ export default function Footer(jk) {
                             </div>
                             <div class="footer__adres">
                                 <span>Адрес:</span>
-                                <p>${jk.salesOffice}</p>
+                                <p>${jk.address}</p>
                             </div>
                         </div>
                     </div>
