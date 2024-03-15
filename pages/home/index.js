@@ -41,13 +41,13 @@ function initSite() {
     MainSlider(generalInfoJK);
     Advantages();
     AboutProject();
-    adsBanner();
-    Infrastructure();
     PersonalTour();
+    Infrastructure();
     // Quiz();
-    // Gallery();
+    adsBanner();
+    Gallery();
     CapturePointPresent(generalInfoJK.title);
-    // Mortgage();
+    Mortgage();
     Footer(generalInfoJK);
     floatBtnCallback(generalInfoJK);
 }

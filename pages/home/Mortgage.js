@@ -1,6 +1,22 @@
 export default function Mortgage(jk_title) {
 
-    const banks = ajaxRequest({url: "/ajax/"+domain+"/Mortgage.json"});
+    let getBanks = XMLHttpRequestAJAX({
+        url: "https://otal-estate.ru/api/site/content/get",
+        method: "GET",
+        body: {
+            content: "banks"
+        }
+    });
+
+    if (getBanks.code === 200) {
+        getBanks = getBanks.data;
+    } else {
+        return false;
+    }
+
+    console.log("getBanks", getBanks);
+
+    return false;
 
     var html = `
     <section id="stock" data-section="mortgage">

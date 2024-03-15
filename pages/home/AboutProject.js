@@ -35,7 +35,7 @@ export default function AboutProject() {
                 </div>
             </div>
             <div class="territory__har">
-                <div class="territory__photo" style="background-image: url(${aboutPhoto})"></div>
+                <div class="territory__photo" style="background-image: url(${encodeURI(aboutPhoto)})"></div>
                 <div class="territory__info">
                     <h3>${territoryTitle}</h3>
                     <p>${territoryDesc}</p>

@@ -22,7 +22,7 @@ export default function Advantages() {
                         var item = getAdvantages[adv];
 
                         html += `
-                        <div class="business__box modal-callback" style="background-image: url(${item.photo})">
+                        <div class="business__box modal-callback" style="background-image: url(${encodeURI(item.photo)})">
                             <strong>${item.title}</strong>
                             <span>узнать подробнее</span>
                         </div>`;

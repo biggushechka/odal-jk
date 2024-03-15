@@ -14,6 +14,8 @@ export default function Gallery() {
         return false;
     }
 
+    console.log("gallery", gallery)
+
     var html = `
     <section class="gallery-jk" data-section="gallery">
         <div class="wrapper-container">
@@ -21,8 +23,7 @@ export default function Gallery() {
                 <div class="tabs-container">
                     <ul class="tabs-list">`;
                         for (var i in gallery) {
-                            var active = (i == 0) ? 'active' : '';
-                            html += `<li class="item ${active}" data-gallery="${i}">${gallery[i].title}</li>`;
+                            html += `<li class="item" data-gallery="${i}">${gallery[i].title}</li>`;
                         }
                         html += `
                     </ul>
@@ -34,7 +35,9 @@ export default function Gallery() {
     html = $(html);
     $('#app').append(html);
 
-    itemGallery(0);
+    html.find(".tabs-list .item").eq(0).addClass('active');
+
+    itemGallery();
 
     html.find('.tabs-list .item').click(function () {
         var id_gallery = $(this).data('gallery');
@@ -43,20 +46,20 @@ export default function Gallery() {
         itemGallery(id_gallery);
     });
 
-    function itemGallery(slide) {
+    function itemGallery(tab) {
+        if (tab === undefined) tab = html.find(".tabs-list .item.active").attr("data-gallery");
 
         html.find('.photo-container').html('');
 
         var galleryItem = `
-        <div class="swiper slider-container" id="slider-gallery-${slide}">
+        <div class="swiper slider-container" id="slider-gallery-${tab}">
             <div class="swiper-wrapper">`;
-                for (var itemGallery in gallery[slide].photos) {
-                    var photo = gallery[slide].photos[itemGallery],
-                        url = (checkImageExists(photo.url) != false && photo.url != '') ? photo.url : '/assets/img/photo-nan.jpg';
+                for (var itemGallery in gallery[tab].photo) {
+                    var photo = gallery[tab].photo[itemGallery];
 
                     galleryItem += `
                     <div class="swiper-slide">
-                        <img src="${url}" class="image-slider">
+                        <img src="${photo}" class="image-slider">
                     </div>`;
                 }
                 galleryItem += `
@@ -64,7 +67,7 @@ export default function Gallery() {
         </div>`;
         html.find('.photo-container').append(galleryItem);
 
-        new Swiper("#slider-gallery-"+slide, {
+        new Swiper("#slider-gallery-"+tab, {
             slidesPerView: 1,
             loop: true,
             autoplay: {

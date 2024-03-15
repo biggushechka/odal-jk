@@ -41,7 +41,7 @@ export default function Infrastructure() {
 
                         html += `
                         <div class="swiper-slide">
-                            <div class="residents__block" style="background-image: url(${slide.photo})">
+                            <div class="residents__block" style="background-image: url(${aboutPhoto(slide.photo)})">
                                 <span></span>
                                 <strong>${slide.title}</strong>
                                 <p>${slide.description}</p>
