@@ -6,6 +6,7 @@ class Templates {
             $meta;
 
     function __construct() {
+        
         $root = $_SERVER['DOCUMENT_ROOT'];
 
         if ($_SERVER['HTTP_HOST'] == 'odal-jk') {
