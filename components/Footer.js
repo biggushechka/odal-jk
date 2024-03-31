@@ -17,9 +17,9 @@ export default function Footer(jk) {
                         </div>
                         <div class="footer__menu">
                             <strong>Контакты</strong>
-                            <div class="footer__call">
-                                <a href="#" class="tel:${jk.contacts.phone}">${jk.contacts.phone}</a>
-                                <p>пн-пт с 09 до 21</p>
+                            <div class="footer__mail">
+                                <span>Телефон:</span>
+                                <a href="tel:${jk.contacts.phone}">${jk.contacts.phone}</a>
                             </div>
                             <div class="footer__mail">
                                 <span>Электронная почта:</span>

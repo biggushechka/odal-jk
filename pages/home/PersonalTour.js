@@ -3,7 +3,7 @@ export default function PersonalTour() {
     <section class="private-village" style="background-image: url(/assets/img/personalTour.webp)">
         <div class="private-village__cnt">
             <h2>Запишитесь на персональную экскурсию</h2>
-            <p>Мы покажем вам готовые и строящиеся дома, парки и близлежащую инфраструктуру</p>
+            <p>Проведём видеопрезентацию комплекса в режиме реального времени. Покажем планировки, панорамные виды</p>
             <form>
                 <div class="private-village__form">
                     <div class="form-input">
