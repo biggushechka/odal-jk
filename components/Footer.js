@@ -50,7 +50,7 @@ export default function Footer(jk) {
                                     <input type="text" name="phone" placeholder="Телефон" class="phone valid-phone">
                                 </label>
                             </div>
-                            <button type="button" class="btn js-send-order" data-target="viewing">отправить заявку</button>
+                            <button type="button" class="btn js-send-order" data-target="viewing">Получить консультацию</button>
                         </div>                        
                         <p class="checkform">Нажимая на кнопку “Связаться с нами”, вы соглашаетесь <a href="/privacy-policy" target="_blank">с условиями обработки личных данных</a></p>
                     </form>

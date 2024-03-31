@@ -11,6 +11,8 @@ export default function MainSlider(jk) {
 
     if (getSliderGallery.code === 200) {
         sliderGallery = getSliderGallery.data;
+    } else {
+        return false;
     }
 
     var html = `
@@ -31,9 +33,13 @@ export default function MainSlider(jk) {
                     html += `
                 </div>
                 <div class="apartment__arrows">
-                    <div class="apartment-button-prev swiper-button-prev"></div>
-                    <div class="swiper-pagination"></div>
-                    <div class="apartment-button-next swiper-button-next"></div>
+                    <div class="apartment-button swiper-button-prev"></div>
+                    <div class="pagination-container">
+                        <span class="number-current">01</span> 
+                        <span class="countdown-separator"></span> 
+                        <span class="count-all">${sliderGallery.length}</span> 
+                    </div>
+                    <div class="apartment-button swiper-button-next"></div>
                 </div>
             </div>
         </div>
@@ -94,19 +100,37 @@ export default function MainSlider(jk) {
 
     let apartmentSwiper = new Swiper(".apartment__swiper", {
         slidesPerView: 1,
-        loop: true,
+        direction: "vertical",
+        loop: false,
         autoplay: {
             delay: 2500,
             disableOnInteraction: false,
         },
         navigation: {
-            nextEl: ".apartment-button-next",
-            prevEl: ".apartment-button-prev",
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
         },
         pagination: {
             el: ".swiper-pagination",
+            type: "fraction"
         },
     });
+
+    formatCurrentNumberSlide(apartmentSwiper.activeIndex);
+
+    apartmentSwiper.on('slideChange', function (event) {
+        formatCurrentNumberSlide(event.activeIndex)
+    });
+
+    function formatCurrentNumberSlide(number) {
+        var activeSlide = number + 1;
+
+        if (activeSlide < 10) {
+            activeSlide = "0" + activeSlide;
+        }
+
+        html.find(".pagination-container .number-current").html(activeSlide);
+    }
 
     html.find('.video-about-jk').click(function () {
         var htmlModal = `<iframe width="100%" height="450" src="${jk.video}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;

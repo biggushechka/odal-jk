@@ -49,59 +49,43 @@ function submitForm(targetClick) {
     // Валидация пройдена и готова отправка формы
     if ( completion === countLabel && validation === true ) {
 
-        var arrayForm = {
-            "Сайт": window.location.origin
-        };
+        var arrayForm = {};
 
         // сбор данных из формы
         form.find('label').each(function () {
             var input = $(this).find('input'),
-                label = input.attr('placeholder'),
+                label = input.attr('name'),
                 value = input.val();
 
             arrayForm[label] = value;
-
-            console.log('arrayForm', arrayForm)
         });
-
-        // Шаблон данных для отправки
-        var dataMail = {
-            subject: "Тема письма",
-            desc: "описание, что именно пришло от польз.",
-            dataForm: arrayForm
-        };
-
-        console.log('dataMail', dataMail)
 
         // Требуется консультация
         if (thisClick == 'callback') {
-            dataMail.subject = '📩 Получена новая заявка!';
-            dataMail.desc = 'Требуется консультация менеджера';
+            arrayForm.request = 'Консультация';
         }
         // Отправить перезентацию ЖК
         if (thisClick == 'presentation') {
-            dataMail.subject = '📩 Получена новая заявка!';
-            dataMail.desc = 'Отправить перезентацию ЖК';
+            arrayForm.request = 'Отправить перезентацию';
         }
         // Записаться на просмотр
         if (thisClick == 'viewing') {
-            dataMail.subject = '📩 Получена новая заявка!';
-            dataMail.desc = 'Запись на просмотр';
+            arrayForm.request = 'Запись на экскурсию';
         }
         // Ипотка
         if (thisClick == 'mortgage') {
-            dataMail.subject = '📩 Получена новая заявка!';
-            dataMail.desc = 'Интресует ипотека';
+            arrayForm.request = 'Ипотека';
         }
 
-        // отправка заявки в Телеграм
-        // sendTelegram(dataMail);
+
+        // Шаблон данных для отправки
+        console.log('arrayForm', arrayForm)
 
         // отправка заявки на почту
         $.ajax({
             type: 'POST',
-            url: '/backend/mail/send.php',
-            data: dataMail
+            url: 'https://otal-estate.ru/api/site/orders/get-form-website',
+            data: arrayForm
         }).done(function() {
             window.location.href = "/pages/successfully/";
         }).fail(function() {

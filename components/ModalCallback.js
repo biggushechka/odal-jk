@@ -33,7 +33,7 @@ export default function ModalCallback(target) {
                     <input type="text" name="phone" placeholder="Телефон" class="phone valid-phone">
                 </label>
             </div>
-            <button type="button" class="btn js-send-order" data-target="${target}">отправить заявку</button>
+            <button type="button" class="btn js-send-order" data-target="${target}">${titleModal}</button>
         </div>
         <p class="personal-data">Нажимая на кнопку “Связаться с нами”, вы соглашаетесь <a href="/privacy-policy" target="_blank">с условиями обработки личных данных</a></p>
     </form>`;

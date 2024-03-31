@@ -287,43 +287,7 @@ p {
     right: 5px;
 }
 
-.apartment__arrows {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 70px;
-    z-index: 3;
-    width: 65px;
-    height: 237px;
-    counter-reset: my-sec-counter;
-
-}
-
-.apartment-button-prev, .apartment-button-next {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    width: 65px;
-    height: 65px;
-    background: #FFFFFF4D;
-    z-index: 9;
-    opacity: 1;
-}
-
-.apartment-button-prev {
-    left: 0;
-    top: 0;
-}
-
-.apartment-button-next {
-    right: auto;
-    left: 0;
-    top: auto;
-    bottom: 0;
-}
-
-.apartment-button-prev:before, .apartment-button-next:before {
+.apartment__main .apartment-button:before {
     content: "";
     position: absolute;
     border-top: 1px solid #ffffff;
@@ -332,49 +296,80 @@ p {
     height: 11px;
 }
 
-.apartment-button-prev:before {
+.apartment__main .swiper-button-prev:before {
     transform: rotate(-45deg);
-    top: 30px;
+    top: 25px;
 }
 
-.apartment-button-next:before {
+.apartment__main .swiper-button-next:before {
     transform: rotate(135deg);
 }
 
-.swiper-button-next:after, .swiper-button-prev:after {
+.apartment__main .swiper-button-next:after, .swiper-button-prev:after {
     display: none;
 }
 
-.apartment__arrows .swiper-pagination {
-    z-index: 10;
-    bottom: auto;
-    top: 79px;
+.apartment__main .apartment__arrows {
+    position: absolute;
+    top: 50%;
+    right: 45px !important;
+    transform: translateY(-50%);
+    z-index: 3;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 60px;
+    justify-content: space-between;
+    width: 65px;
+    height: 237px;
 }
 
-.apartment__arrows .swiper-pagination .swiper-pagination-bullet {
-    width: 20px;
-    height: auto;
-    border-radius: 0;
-    background: unset;
-    opacity: 0;
-
-}
-
-.apartment__arrows .swiper-pagination-bullet:before {
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 19px;
-    color: #ffffff;
-}
-
-.apartment__arrows .swiper-pagination .swiper-pagination-bullet-active {
+.apartment__main .apartment-button {
+    position: relative;
+    z-index: 9;
+    top: unset !important;
+    left: unset !important;
+    right: unset !important;
+    bottom: unset !important;
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    background: #FFFFFF4D;
     opacity: 1;
-    position: absolute;
-    top: 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.apartment__main .apartment-button:active {
+    background: rgba(245, 245, 245, 0.3);
+}
+
+.apartment__main .apartment-button.swiper-button-disabled {
+    opacity: 0.4 !important;
+}
+
+.apartment__main .apartment__arrows .pagination-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    grid-row-gap: 10px;
+    width: 30px;
+}
+
+.apartment__main .apartment__arrows .pagination-container span {
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.apartment__main .apartment__arrows .pagination-container .countdown-separator {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .apartment__arrows .swiper-pagination .swiper-pagination-bullet:first-child {
@@ -966,11 +961,13 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    grid-gap: 10px;
     margin-top: 40px;
 }
 
 .private-village__form .btn {
     height: 60px;
+    white-space: nowrap;
 }
 
 .form-input {
@@ -1388,6 +1385,22 @@ p {
 
 .present__detailed {
     margin-top: 40px;
+}
+
+.presentation__info .personal-data {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    margin-top: 17px;
+}
+
+.presentation__info .personal-data a {
+    color: inherit;
+    text-decoration: underline;
 }
 
 .present__detailed .form-input {

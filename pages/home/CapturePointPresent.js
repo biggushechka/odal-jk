@@ -22,10 +22,7 @@ export default function CapturePointPresent(jk_title) {
                             </div>
                             <button type="button" class="btn js-send-order" data-target="presentation">Скачать презентацию</button>
                         </div>
-                        <label class="checkform">Соглашаюсь с <a href="#">условиями передачи данных</a>
-                            <input type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                        </label>
+                        <div class="personal-data">Нажимая на кнопку “Связаться с нами”, вы соглашаетесь <a href="/privacy-policy" target="_blank">с условиями обработки личных данных</a></div>
                     </form>
                 </div>
                 <div class="presentation__photo">
