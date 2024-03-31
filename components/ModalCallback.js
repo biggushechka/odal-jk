@@ -38,6 +38,7 @@ export default function ModalCallback(target) {
         <p class="personal-data">Нажимая на кнопку “Связаться с нами”, вы соглашаетесь <a href="/privacy-policy" target="_blank">с условиями обработки личных данных</a></p>
     </form>`;
 
+
     var modal = new Modal({
         classModal: 'modal-callback', // класс для модального окна
         mode: 'center', // center | top | right
