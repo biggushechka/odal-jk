@@ -62,19 +62,19 @@ function submitForm(targetClick) {
 
         // Требуется консультация
         if (thisClick == 'callback') {
-            arrayForm.request = 'Консультация';
+            arrayForm.type = 'Консультация';
         }
         // Отправить перезентацию ЖК
         if (thisClick == 'presentation') {
-            arrayForm.request = 'Отправить перезентацию';
+            arrayForm.type = 'Отправить перезентацию';
         }
         // Записаться на просмотр
         if (thisClick == 'viewing') {
-            arrayForm.request = 'Запись на экскурсию';
+            arrayForm.type = 'Запись на экскурсию';
         }
         // Ипотка
         if (thisClick == 'mortgage') {
-            arrayForm.request = 'Ипотека';
+            arrayForm.type = 'Ипотека';
         }
 
 
@@ -82,16 +82,23 @@ function submitForm(targetClick) {
         console.log('arrayForm', arrayForm)
 
         // отправка заявки на почту
-        $.ajax({
-            type: 'POST',
+        // $.ajax({
+        //     type: 'POST',
+        //     data: arrayForm
+        // }).done(function() {
+        //     // window.location.href = "/pages/successfully/";
+        // }).fail(function() {
+        //     alert('Заявка не отправлена!');
+        //     console.error('Заявка не отправлена!');
+        // });
+
+        const sendOrder = XMLHttpRequestAJAX({
             url: 'https://otal-estate.ru/api/site/orders/get-form-website',
-            data: arrayForm
-        }).done(function() {
-            window.location.href = "/pages/successfully/";
-        }).fail(function() {
-            alert('Заявка не отправлена!');
-            console.error('Заявка не отправлена!');
+            method: "POST",
+            body: arrayForm
         });
+
+        console.log("sendOrder", sendOrder)
 
     }
 }
