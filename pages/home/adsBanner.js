@@ -11,7 +11,7 @@ export default function adsBanner() {
                     <small>Нажимая на кнопку “Оставить заявку”, я принимаю условия Политика обработки и защиты персональных данных,  даю согласие на обработку персоональных данных</small>
                 </div>
                 <div class="become__photo">
-                    <img src="" alt="image">
+                    <img src="/assets/img/key.webp" alt="image">
                 </div>
             </div>
         </div>

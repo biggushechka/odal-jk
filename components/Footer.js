@@ -4,7 +4,6 @@ export default function Footer(jk) {
         <div class="container">
             <div class="footer__main">
                 <div class="footer__info">
-                    <div class="footer__logo">${jk.title}</div>
                     <div class="footer__cnt">
                         <div class="footer__menu">
                             <strong>Навигация</strong>
@@ -24,7 +23,7 @@ export default function Footer(jk) {
                             </div>
                             <div class="footer__mail">
                                 <span>Электронная почта:</span>
-                                <a href="mailto:${jk.contacts.email}" class="mailto:${jk.contacts.email}">${jk.contacts.email}</a>
+                                <a href="mailto:${jk.contacts.email}" class="">${jk.contacts.email}</a>
                             </div>
                             <div class="footer__adres">
                                 <span>Адрес:</span>
@@ -36,20 +35,20 @@ export default function Footer(jk) {
                 
                 
                 <div class="footer__form">
-                    <h4>Приглашаем в демо-квартиру</h4>
-                    <p>Укажите ваш адрес и номер телефона для заказа бесплатного такси.</p>
+                    <h4>Приглашаем в <br> демо-квартиру</h4>
+                    <p>Укажите ваш адрес и номер телефона <br> для заказа бесплатного такси.</p>
                     <form>
                         <div class="present__detailed">
                             <div class="form-input">
-                                <i class="icon phone"></i>
+                                <i class="icon user"></i>
                                 <label>
-                                    <input type="text" placeholder="Телефон" class="phone valid-phone">
+                                    <input type="text" name="name" placeholder="Имя" class="">
                                 </label>
                             </div>
                             <div class="form-input">
-                                <i class="icon mail"></i>
+                                <i class="icon phone"></i>
                                 <label>
-                                    <input type="text" placeholder="Почта" class="">
+                                    <input type="text" name="phone" placeholder="Телефон" class="phone valid-phone">
                                 </label>
                             </div>
                             <button type="button" class="btn js-send-order" data-target="viewing">отправить заявку</button>

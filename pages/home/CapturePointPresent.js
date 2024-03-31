@@ -4,20 +4,20 @@ export default function CapturePointPresent(jk_title) {
         <div class="container">
             <div class="presentation__cnt">
                 <div class="presentation__info">
-                    <h2>Получи презентацию “${jk_title}” в 1 клик</h2>
+                    <h2>Получи презентацию<br>«${jk_title}» <br> в 1 клик</h2>
                     <p>Заполните форму и мы отправим вам подробный каталог по объекту</p>
                     <form>
                         <div class="present__detailed">
                             <div class="form-input">
-                                <i class="icon phone"></i>
+                                <i class="icon user"></i>
                                 <label>
-                                    <input type="text" placeholder="Телефон" class="phone valid-phone">
+                                    <input type="text" name="name" placeholder="Имя" class="">
                                 </label>
                             </div>
                             <div class="form-input">
-                                <i class="icon mail"></i>
+                                <i class="icon phone"></i>
                                 <label>
-                                    <input type="text" placeholder="Почта" class="">
+                                    <input type="text" name="phone" placeholder="Телефон" class="phone valid-phone">
                                 </label>
                             </div>
                             <button type="button" class="btn js-send-order" data-target="presentation">Скачать презентацию</button>

@@ -17,9 +17,16 @@ export default function Header(jk) {
                             var phoneWhatsApp = jk.contacts.whatsapp_phone.replace(/[\s()+-]/g, "");
                             html += `<a href=" https://wa.me/${phoneWhatsApp}" target="_blank" class="header__soc"><i class="whatsapp-icon"></i></a>`;
                         }
-                        if (jk.contacts.telegram_phone != undefined && jk.contacts.telegram_phone != '') {
-                            var phoneTelegram = jk.contacts.telegram_phone.replace(/[^0-9+]/g, "");
-                            html += `<a href="https://t.me/${phoneTelegram}" target="_blank" class="header__soc"><i class="telegram-icon"></i></a>`;
+
+                        var openTelegram;
+                        if (jk.contacts.telegram_link !== undefined && jk.contacts.telegram_link !== "") {
+                            openTelegram = jk.contacts.telegram_link;
+                        } else if (jk.contacts.telegram_phone !== undefined && jk.contacts.telegram_phone !== "") {
+                            openTelegram = "https://t.me/" + jk.contacts.telegram_phone.replace(/[^0-9+]/g, "");
+                        }
+
+                        if (openTelegram !== undefined && openTelegram !== "") {
+                            html += `<a href="${openTelegram}" target="_blank" class="header__soc"><i class="telegram-icon"></i></a>`;
                         }
                         html += `
                     </div>
@@ -89,10 +96,16 @@ export default function Header(jk) {
 
                             html += `<a href=" https://wa.me/${phoneWhatsApp}" target="_blank" class="header__soc"><i class="whatsapp-icon"></i></a>`;
                         }
-                        if (jk.contacts.telegram_phone != undefined && jk.contacts.telegram_phone != '') {
-                            var phoneTelegram = jk.contacts.telegram_phone.replace(/[\s()]/g, "");
 
-                            html += `<a href="https://t.me/${phoneTelegram}" target="_blank" class="header__soc"><i class="telegram-icon"></i></a>`;
+                        var openTelegram;
+                        if (jk.contacts.telegram_link !== undefined && jk.contacts.telegram_link !== "") {
+                            openTelegram = jk.contacts.telegram_link;
+                        } else if (jk.contacts.telegram_phone !== undefined && jk.contacts.telegram_phone !== "") {
+                            openTelegram = "https://t.me/" + jk.contacts.telegram_phone.replace(/[^0-9+]/g, "");
+                        }
+
+                        if (openTelegram !== undefined && openTelegram !== "") {
+                            html += `<a href="${openTelegram}" target="_blank" class="header__soc"><i class="telegram-icon"></i></a>`;
                         }
                         html += `
                     </div>

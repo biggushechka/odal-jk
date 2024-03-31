@@ -1348,6 +1348,12 @@ p {
     width: 100%;
 }
 
+.become__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .presentation__main {
     margin-top: 100px;
 }
@@ -2534,10 +2540,6 @@ p {
 
     .become__photo {
         max-width: 100%;
-    }
-
-    .become__photo img {
-        width: 100%;
     }
 
     .call-fixed {
