@@ -33,7 +33,6 @@ export default function Footer(jk) {
                     </div>
                 </div>
                 
-                
                 <div class="footer__form">
                     <h4>Приглашаем в <br> демо-квартиру</h4>
                     <p>Укажите ваш адрес и номер телефона <br> для заказа бесплатного такси.</p>
