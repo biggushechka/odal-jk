@@ -9,13 +9,13 @@ export default function CapturePointPresent(jk_title) {
                     <form>
                         <div class="present__detailed">
                             <div class="form-input">
-                                <i class="icon-call"></i>
+                                <i class="icon phone"></i>
                                 <label>
                                     <input type="text" placeholder="Телефон" class="phone valid-phone">
                                 </label>
                             </div>
                             <div class="form-input">
-                                <i class="icon-mail"></i>
+                                <i class="icon mail"></i>
                                 <label>
                                     <input type="text" placeholder="Почта" class="">
                                 </label>

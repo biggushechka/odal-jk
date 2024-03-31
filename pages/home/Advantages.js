@@ -25,7 +25,7 @@ export default function Advantages() {
                         html += `
                         <div class="business__box modal-callback" style="background-image: url(${encodeURI(item.photo)})">
                             <strong>${item.title}</strong>
-                            <span>узнать подробнее</span>
+                            <span>${item.description}</span>
                         </div>`;
                     }
                     html += `

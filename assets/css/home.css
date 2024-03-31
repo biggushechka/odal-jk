@@ -504,7 +504,6 @@ p {
     background-size: cover;
     background-position: center;
     transition: all 120ms ease-in-out;
-    cursor: pointer;
 }
 
 .business__box:after {
@@ -1022,18 +1021,6 @@ p {
     background-size: cover;
     left: 26px;
 
-}
-
-.icon-call {
-    background-image: url("../img/icon/call.svg");
-    width: 14px;
-    height: 14px;
-}
-
-.icon-mail {
-    background-image: url("../img/icon/mail.svg");
-    width: 16px;
-    height: 12px;
 }
 
 .checkform {

@@ -29,6 +29,16 @@
     -webkit-mask-image: url(./phone.svg);
 }
 
+.icon.user {
+    mask-image: url(./user.svg);
+    -webkit-mask-image: url(./user.svg);
+}
+
+.icon.mail {
+    mask-image: url(./mail.svg);
+    -webkit-mask-image: url(./mail.svg);
+}
+
 .icon.burger {
     mask-image: url(./burger.svg);
     -webkit-mask-image: url(./burger.svg);

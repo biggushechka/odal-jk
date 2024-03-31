@@ -22,15 +22,15 @@ export default function ModalCallback(target) {
     <form>
         <div class="present__detailed">
             <div class="form-input">
-                <i class="icon-call"></i>
+                <i class="icon user"></i>
                 <label>
-                    <input type="text" placeholder="Телефон" class="phone valid-phone">
+                    <input type="text" name="name" placeholder="Имя" class="">
                 </label>
             </div>
             <div class="form-input">
-                <i class="icon-mail"></i>
+                <i class="icon phone"></i>
                 <label>
-                    <input type="text" placeholder="Почта" class="">
+                    <input type="text" name="phone" placeholder="Телефон" class="phone valid-phone">
                 </label>
             </div>
             <button type="button" class="btn js-send-order" data-target="${target}">отправить заявку</button>
