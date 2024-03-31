@@ -131,6 +131,7 @@ p {
 .apartment__cnt {
     position: relative;
     z-index: 1;
+    width: max-content;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -364,9 +365,6 @@ p {
 }
 
 .apartment__arrows .swiper-pagination-bullet:before {
-    counter-increment: my-sec-counter;
-    content: counter(my-sec-counter, decimal-leading-zero);
-    font-family: 'Styrene A Web';
     font-size: 15px;
     font-weight: 700;
     line-height: 19px;
