@@ -501,7 +501,7 @@ p {
     padding: 30px 20px;
     margin: 0 10px;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     background-position: center;
     transition: all 120ms ease-in-out;
     cursor: pointer;
@@ -520,10 +520,6 @@ p {
 .business__box > * {
     position: relative;
     z-index: 2;
-}
-
-.business__box:hover {
-    background-size: 110%;
 }
 
 .business__box strong {

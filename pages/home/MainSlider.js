@@ -20,12 +20,11 @@ export default function MainSlider(jk) {
                 <div class="swiper-wrapper">`;
 
                     for (var item in sliderGallery) {
-                        var image = sliderGallery[item],
-                            url = image.image;
+                        var image = sliderGallery[item];
 
                         html += `
                         <div class="swiper-slide">
-                            <img src="${url}" class="image-slider">
+                            <img src="${encodeURI(image.image)}" class="image-slider">
                         </div>`;
                     }
 

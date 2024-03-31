@@ -13,9 +13,8 @@ import Mortgage from './Mortgage.js'
 import floatBtnCallback from './floatBtnCallback.js'
 import Footer from '/components/Footer.js'
 
+
 var generalInfoJK;
-
-
 const getGeneralInfo = XMLHttpRequestAJAX({
     url: "https://otal-estate.ru/api/site/content/get",
     method: "GET",

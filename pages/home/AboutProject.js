@@ -18,7 +18,7 @@ export default function AboutProject() {
         aboutDesc = (aboutJK.about.desc != undefined && aboutJK.about.desc != '') ? aboutJK.about.desc : `<span style="color: red;">????????</span>`,
         territoryTitle = (aboutJK.territory.title != undefined && aboutJK.territory.title != '') ? aboutJK.territory.title : `<span style="color: red;">????????</span>`,
         territoryDesc = (aboutJK.territory.desc != undefined && aboutJK.territory.desc != '') ? aboutJK.territory.desc : `<span style="color: red;">????????</span>`,
-        aboutPhoto = (aboutJK.about.photo != undefined && aboutJK.about.photo != '') ? aboutJK.about.photo : '/assets/img/photo-nan.jpg';
+        aboutPhoto = (aboutJK.about.photo != undefined && aboutJK.about.photo != '') ? encodeURI(aboutJK.about.photo) : '/assets/img/photo-nan.jpg';
 
     var html = `
     <section class="business__main" data-section="aboutjk">
