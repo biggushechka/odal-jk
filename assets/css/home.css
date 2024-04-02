@@ -875,6 +875,11 @@ p {
     left: 17px;
 }
 
+.residents-button-next:after {
+    content: "" !important;
+    display: none;
+}
+
 .residents__arrow {
     margin-top: 45px;
     max-width: 350px;
