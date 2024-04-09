@@ -38,46 +38,46 @@ jobs:
             git reset --hard
             git pull origin master;
             cd backend
-            date +%s > version.txt
+            date +%s > versionFiles.txt
             
             cd ${{env.SERVER_PATH}}/ayu-dag.ru;
             git checkout master;
             git reset --hard
             git pull origin master;
             cd backend
-            date +%s > version.txt
+            date +%s > versionFiles.txt
             
             cd ${{env.SERVER_PATH}}/darsan-apartments.ru;
             git checkout master;
             git reset --hard
             git pull origin master;
             cd backend
-            date +%s > version.txt
+            date +%s > versionFiles.txt
             
             cd ${{env.SERVER_PATH}}/gurzuf-riviera-apartments.ru;
             git checkout master;
             git reset --hard
             git pull origin master;
             cd backend
-            date +%s > version.txt
+            date +%s > versionFiles.txt
             
             cd ${{env.SERVER_PATH}}/luchistoe-alushta.ru;
             git checkout master;
             git reset --hard
             git pull origin master;
             cd backend
-            date +%s > version.txt
+            date +%s > versionFiles.txt
             
             cd ${{env.SERVER_PATH}}/royalta-apartments.ru;
             git checkout master;
             git reset --hard
             git pull origin master;
             cd backend
-            date +%s > version.txt
+            date +%s > versionFiles.txt
             
             cd ${{env.SERVER_PATH}}/svetskij-les-apartments.ru;
             git checkout master;
             git reset --hard
             git pull origin master;
             cd backend
-            date +%s > version.txt
+            date +%s > versionFiles.txt

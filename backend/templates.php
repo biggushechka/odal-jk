@@ -12,7 +12,7 @@ class Templates {
         if ($_SERVER['HTTP_HOST'] == 'odal-jk') {
             $this->v = mt_rand(10000, 99999999);
         } else {
-            $getFileVersion = file($root."/backend/version.txt", FILE_IGNORE_NEW_LINES);
+            $getFileVersion = file($root."/backend/versionFiles.txt", FILE_IGNORE_NEW_LINES);
             $this->v = $getFileVersion[0];
 
             require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/clearCash.php';
