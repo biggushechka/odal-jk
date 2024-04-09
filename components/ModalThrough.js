@@ -33,7 +33,7 @@ export default function ModalThrough(jk) {
                     <div class="form-input">
                         <i class="icon phone"></i>
                         <label>
-                            <input type="text" placeholder="Телефон" class="phone valid-phone">
+                            <input type="text" name="phone" placeholder="Телефон" class="phone valid-phone">
                         </label>
                     </div>
                     <button type="button" class="btn js-send-order" data-target="callback">Жду звонка</button>
