@@ -74,3 +74,10 @@ jobs:
             git pull origin master;
             cd backend
             date +%s > version.txt
+            
+            cd ${{env.SERVER_PATH}}/svetskij-les-apartments.ru;
+            git checkout master;
+            git reset --hard
+            git pull origin master;
+            cd backend
+            date +%s > version.txt
