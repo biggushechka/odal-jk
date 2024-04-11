@@ -67,6 +67,8 @@ function submitForm(targetClick) {
             body: arrayForm
         });
 
+        console.log("sendOrder", sendOrder);
+
     }
 }
 
