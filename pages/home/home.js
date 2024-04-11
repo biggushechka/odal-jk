@@ -25,7 +25,6 @@ const getGeneralInfo = XMLHttpRequestAJAX({
 
 if (getGeneralInfo.code === 200) {
     generalInfoJK = getGeneralInfo.data;
-    console.log(generalInfoJK.title, generalInfoJK);
 
     if (generalInfoJK.activity == "on") {
         getMeta();
@@ -60,13 +59,11 @@ function getMeta() {
         }
     });
 
-    if (getMeta.code == 200) {
-        var meta = getMeta.data;
-
-        const sendMeta = XMLHttpRequestAJAX({
+    if (getMeta.code === 200) {
+        XMLHttpRequestAJAX({
             url: "/backend/getMeta.php",
             method: "POST",
-            body: meta
+            body: getMeta.data
         });
     }
 }

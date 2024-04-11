@@ -1,7 +1,4 @@
 export default function ModalThrough(jk) {
-
-    console.log("ModalThrough", jk)
-
     // const sliderGallery = ajaxRequest({url: "/ajax/"+domain+"/MainSlider.json"});
 
     var html = `

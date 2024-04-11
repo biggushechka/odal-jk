@@ -14,8 +14,6 @@ export default function Mortgage(jk_title) {
         return false;
     }
 
-    console.log("getBanks", getBanks);
-
     return false;
 
     var html = `

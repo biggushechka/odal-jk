@@ -67,7 +67,9 @@ function submitForm(targetClick) {
             body: arrayForm
         });
 
-        console.log("sendOrder", sendOrder);
+        if (sendOrder.code && sendOrder.code === 200) {
+            alert("Заявка отправлена!")
+        }
 
     }
 }

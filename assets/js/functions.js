@@ -98,3 +98,15 @@ function getType(p) {
     else if (p != null && typeof p == 'object') return 'object';
     else return 'other';
 }
+
+// создание <link> тега
+function createCSSLink(path) {
+    let nameFile = path.match(/\/([^\/]+)\.css$/)[1];
+
+    let cssNavigation = document.createElement('link');
+    cssNavigation.setAttribute("rel", "stylesheet");
+    cssNavigation.setAttribute("href", path+"?v="+version);
+    cssNavigation.id = "css_"+nameFile;
+
+    if (!document.getElementById(cssNavigation.id)) document.head.append(cssNavigation);
+}

@@ -20,7 +20,6 @@ export default function Advantages() {
                 <div class="business__flex">`;
                     for (var adv in getAdvantages) {
                         var item = getAdvantages[adv];
-                        console.log(item.title, item.photo)
 
                         html += `
                         <div class="business__box modal-callback" style="background-image: url(${encodeURI(item.photo)})">

@@ -14,8 +14,6 @@ export default function Gallery() {
         return false;
     }
 
-    console.log("gallery", gallery)
-
     var html = `
     <section class="gallery-jk" data-section="gallery">
         <div class="wrapper-container">
