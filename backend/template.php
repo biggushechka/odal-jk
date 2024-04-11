@@ -9,6 +9,7 @@ if ($_SERVER['HTTP_HOST'] == 'odal-jk') {
     $getFileVersion = file($root."/backend/versionFiles.txt", FILE_IGNORE_NEW_LINES);
     $version = $getFileVersion[0];
 
+
     clearCash($root . "/assets", $version);
     clearCash($root . "/components", $version);
     clearCash($root . "/pages", $version);
