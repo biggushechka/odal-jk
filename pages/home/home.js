@@ -7,7 +7,7 @@ import Infrastructure from './Infrastructure.js'
 import PersonalTour from './PersonalTour.js'
 // import Quiz from './Quiz.js'
 import Gallery from './Gallery.js'
-import adsBanner from './adsBanner.js'
+import commercialBanner from './commercialBanner.js'
 import CapturePointPresent from './CapturePointPresent.js'
 import Mortgage from './Mortgage.js'
 import floatBtnCallback from './floatBtnCallback.js'
@@ -42,7 +42,7 @@ function initSite() {
     PersonalTour();
     Infrastructure();
     // Quiz();
-    adsBanner();
+    commercialBanner();
     Gallery();
     CapturePointPresent(generalInfoJK.title);
     Mortgage();
