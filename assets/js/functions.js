@@ -47,8 +47,11 @@ function checkImageExists(imageUrl) {
 
 // импорт компонента js
 function importComponent(path, data) {
-    path = (path != "" && path != undefined) ? path : "/nan";
-    data = (data != "" && data != undefined) ? data : "";
+    path = (path) ? path : "/nan";
+    data = (data) ? data : "";
+
+    console.log("path", path);
+    console.log("data", data);
 
     import(`${path}?v=${version}`).then(function (obj) {
         obj.default(data);
