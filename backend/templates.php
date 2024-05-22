@@ -1,26 +1,33 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/clearCash.php';
+
 class Templates {
 
-    private $v = "",
-            $title = "",
-            $meta;
+    private $v = "", $title = "", $meta;
 
     function __construct() {
-        
+
         $root = $_SERVER['DOCUMENT_ROOT'];
 
         if ($_SERVER['HTTP_HOST'] == 'odal-jk') {
             $this->v = mt_rand(10000, 99999999);
         } else {
             $getFileVersion = file($root."/backend/version.txt", FILE_IGNORE_NEW_LINES);
-            $this->v = $getFileVersion[0];
+            $version_now = $getFileVersion[0];
+            $version_new = $getFileVersion[1];
+            $version = $version_now;
 
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/clearCash.php';
+            if ($version_now != $version_new) {
+                $version_now = $version_new;
+                $version = $version_now;
+                $getFileVersion[0] = $getFileVersion[1];
+                file_put_contents($root."/backend/version.txt", implode(PHP_EOL, $getFileVersion));
 
-            clearCash($root . "/assets", $this->v);
-            clearCash($root . "/components", $this->v);
-            clearCash($root . "/pages", $this->v);
-            clearCash($root . "/plugins/modal", $this->v);
+                clearCash($root . "/assets", $this->v);
+                clearCash($root . "/components", $this->v);
+                clearCash($root . "/pages", $this->v);
+                clearCash($root . "/plugins/modal", $this->v);
+            }
         }
 
         if (file_exists($root . "/meta.txt")) {
@@ -40,7 +47,7 @@ class Templates {
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-    <meta version="<?=$this->v?>" domain="" id="configmeta">
+    <meta version="<?=$this->v?>" id="configmeta">
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="/static/favicon.svg?v=<?=$this->v?>">
