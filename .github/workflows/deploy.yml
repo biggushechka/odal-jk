@@ -38,6 +38,8 @@ jobs:
                 cd "$site_folder"
                 git reset --hard
                 git pull origin master;
+            
+                pwd
                     
                 cd backend
                 timestamp=$(date +%s)
