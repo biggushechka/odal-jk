@@ -25,7 +25,7 @@ jobs:
 
       # Deploy
       - name: Connect on remote server and deploy
-        uses: appleboy/ssh-action@v1.0.0
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{env.SERVER_HOST}}
           port: ${{env.SERVER_PORT}}
@@ -33,12 +33,6 @@ jobs:
           password: ${{env.SERVER_PASS}}
           key: ${{secrets.KEY}}
           script: |
-#            cd ${{env.SERVER_PATH}}/alba-del-mare.ru;
-#            git checkout master;
-#            git reset --hard
-#            git pull origin master;
-#            cd backend
-
             cd ${{env.SERVER_PATH}}
             for site_folder in */; do
                 cd "$site_folder"
