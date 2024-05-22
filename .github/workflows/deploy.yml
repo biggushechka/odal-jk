@@ -39,9 +39,9 @@ jobs:
                 git reset --hard
                 git pull origin master;
             
-                pwd
-                    
                 cd backend
+                pwd
+            
                 timestamp=$(date +%s)
                 sed -i '2s/.*/'$timestamp'/' version.txt
                 cd ../
