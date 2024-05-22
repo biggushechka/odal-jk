@@ -40,7 +40,7 @@ jobs:
                 git reset --hard
                 git pull origin master;
             
-                cd ${{env.SERVER_PATH}}/"$site_folder"/backend
+                cd backend
                 timestamp=$(date +%s)
                 sed -i '2s/.*/'$timestamp'/' version.txt
                 pwd
