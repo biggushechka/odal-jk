@@ -44,5 +44,5 @@ jobs:
                 cd backend
                 timestamp=$(date +%s)
                 sed -i '2s/.*/'$timestamp'/' version.txt
-                cd ..
+                cd ../
             done
