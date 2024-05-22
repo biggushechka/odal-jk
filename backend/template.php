@@ -11,6 +11,7 @@ if ($_SERVER['HTTP_HOST'] == 'odal-jk') {
     $version_new = $getFileVersion[1];
     $version = $version_now;
 
+
     if ($version_now != $version_new) {
         $version_now = $version_new;
         $version = $version_now;
