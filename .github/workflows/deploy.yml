@@ -44,5 +44,4 @@ jobs:
                 timestamp=$(date +%s)
                 sed -i '2s/.*/'$timestamp'/' version.txt
                 pwd
-                cd ..
             done
