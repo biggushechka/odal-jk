@@ -16,8 +16,6 @@ export default function ModalCallback(target) {
         titleModal = 'NaN';
     }
 
-    console.log('target', target)
-
     var html = `
     <form>
         <div class="present__detailed">

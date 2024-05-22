@@ -1,5 +1,4 @@
-export default function adsBanner() {
-
+export default function commercialBanner() {
     var html = `
     <section class="become__resort">
         <div class="container">

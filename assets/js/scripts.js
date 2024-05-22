@@ -1,6 +1,5 @@
 // ---------- var global ----------
-var version = document.querySelector("#configmeta").getAttribute("version"),
-    $domain = document.querySelector("#configmeta").getAttribute("domain");
+var version = document.querySelector("#versionFiles").getAttribute("version");
 
 
 // ---------- import ----------

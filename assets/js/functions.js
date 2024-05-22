@@ -47,8 +47,11 @@ function checkImageExists(imageUrl) {
 
 // импорт компонента js
 function importComponent(path, data) {
-    path = (path != "" && path != undefined) ? path : "/nan";
-    data = (data != "" && data != undefined) ? data : "";
+    path = (path) ? path : "/nan";
+    data = (data) ? data : "";
+
+    console.log("path", path);
+    console.log("data", data);
 
     import(`${path}?v=${version}`).then(function (obj) {
         obj.default(data);
@@ -97,4 +100,16 @@ function getType(p) {
     else if (typeof p == 'string') return 'string';
     else if (p != null && typeof p == 'object') return 'object';
     else return 'other';
+}
+
+// создание <link> тега
+function createCSSLink(path) {
+    let nameFile = path.match(/\/([^\/]+)\.css$/)[1];
+
+    let cssNavigation = document.createElement('link');
+    cssNavigation.setAttribute("rel", "stylesheet");
+    cssNavigation.setAttribute("href", path+"?v="+version);
+    cssNavigation.id = "css_"+nameFile;
+
+    if (!document.getElementById(cssNavigation.id)) document.head.append(cssNavigation);
 }

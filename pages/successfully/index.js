@@ -14,7 +14,6 @@ const getGeneralInfo = XMLHttpRequestAJAX({
 
 if (getGeneralInfo.code === 200) {
     generalInfoJK = getGeneralInfo.data;
-    console.log(generalInfoJK.title, generalInfoJK);
 
     if (generalInfoJK.activity == "on") {
         initPage();

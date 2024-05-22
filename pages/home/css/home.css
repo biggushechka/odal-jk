@@ -281,7 +281,7 @@ p {
 }
 
 .btn-ic:after {
-    content: url("../img/icon/padarok.svg");
+    content: url("/assets/img/icon/padarok.svg");
     position: absolute;
     top: 5px;
     right: 5px;
@@ -873,6 +873,11 @@ p {
 .residents-button-next:before {
     transform: rotate(45deg);
     left: 17px;
+}
+
+.residents-button-next:after {
+    content: "" !important;
+    display: none;
 }
 
 .residents__arrow {

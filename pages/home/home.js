@@ -7,7 +7,7 @@ import Infrastructure from './Infrastructure.js'
 import PersonalTour from './PersonalTour.js'
 // import Quiz from './Quiz.js'
 import Gallery from './Gallery.js'
-import adsBanner from './adsBanner.js'
+import commercialBanner from './commercialBanner.js'
 import CapturePointPresent from './CapturePointPresent.js'
 import Mortgage from './Mortgage.js'
 import floatBtnCallback from './floatBtnCallback.js'
@@ -25,7 +25,6 @@ const getGeneralInfo = XMLHttpRequestAJAX({
 
 if (getGeneralInfo.code === 200) {
     generalInfoJK = getGeneralInfo.data;
-    console.log(generalInfoJK.title, generalInfoJK);
 
     if (generalInfoJK.activity == "on") {
         getMeta();
@@ -43,7 +42,7 @@ function initSite() {
     PersonalTour();
     Infrastructure();
     // Quiz();
-    adsBanner();
+    commercialBanner();
     Gallery();
     CapturePointPresent(generalInfoJK.title);
     Mortgage();
@@ -60,13 +59,11 @@ function getMeta() {
         }
     });
 
-    if (getMeta.code == 200) {
-        var meta = getMeta.data;
-
-        const sendMeta = XMLHttpRequestAJAX({
+    if (getMeta.code === 200) {
+        XMLHttpRequestAJAX({
             url: "/backend/getMeta.php",
             method: "POST",
-            body: meta
+            body: getMeta.data
         });
     }
 }
