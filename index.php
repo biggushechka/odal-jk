@@ -6,6 +6,7 @@ $version_new = "";
 $root = $_SERVER['DOCUMENT_ROOT'];
 
 require_once "$root/backend/template.php";
+
 ?>
 <!doctype html>
 <html lang="ru">
