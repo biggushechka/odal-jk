@@ -53,11 +53,15 @@ function importComponent(path, data) {
     console.log("path", path);
     console.log("data", data);
 
-    import(`${path}?v=${version}`).then(function (obj) {
-        obj.default(data);
-    }).catch(function (error) {
-        console.error('%c ERROR: import JS ', 'background: red; color: #fff; border-radius: 50px;', error);
-    });
+    if (path !== "/nan") {
+        import(`${path}?v=${version}`).then(function (obj) {
+            obj.default(data);
+        }).catch(function (error) {
+            console.error('%c ERROR: import JS ', 'background: red; color: #fff; border-radius: 50px;', error);
+        });
+    } else {
+        console.error("Не указан путь для импорта компонента")
+    }
 }
 
 function ModalCallBack(target) {
