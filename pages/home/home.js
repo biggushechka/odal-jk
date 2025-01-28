@@ -42,7 +42,7 @@ export default function HomePage() {
         AboutProject();
         PersonalTour();
         Infrastructure();
-        // Quiz();
+        Quiz();
         commercialBanner();
         Gallery();
         CapturePointPresent(generalInfoJK.title);

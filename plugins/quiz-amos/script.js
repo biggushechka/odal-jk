@@ -24,14 +24,14 @@ function initQuiz(data) {
 
     // $('body').addClass("no-scroll");
 
-    if (data.place != 'body' || data.place == undefined) {
+    if (data.place) {
         scClass = ''
     }
 
     $.getJSON(pathQuiz, function(quiz) {
         var html= `
         <div class="am-modal-quiz `+scClass+`" am-quiz>
-            <button type="button" class="am-btn btn-close-quiz">✖</button>
+            ${(!data.place) ? `<button type="button" class="am-btn btn-close-quiz">✖</button>` : ``}
             <div class="am-modal-body">
             
                 <!-- Вступление -->
