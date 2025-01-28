@@ -36,18 +36,18 @@ export default function HomePage() {
     }
 
     function initSite() {
-        Header(generalInfoJK);
-        MainSlider(generalInfoJK);
-        Advantages();
-        AboutProject();
-        PersonalTour();
-        Infrastructure();
-        Quiz();
-        commercialBanner();
-        Gallery();
-        CapturePointPresent(generalInfoJK.title);
-        Mortgage();
-        Footer(generalInfoJK);
+        Header(generalInfoJK);                      // Шапка / Навигация
+        MainSlider(generalInfoJK);                  // Главный слайдер
+        Advantages();                               // преимущества
+        AboutProject();                             // о проекте
+        PersonalTour();                             // запись на персональную экскурсию
+        Infrastructure();                           // инфраструктура
+        Quiz();                                     // квиз
+        commercialBanner();                         // рекламный баннер
+        Gallery();                                  // галерея
+        CapturePointPresent(generalInfoJK.title);   // Получи презентацию
+        Mortgage();                                 // Варианты покупки через ипотеку
+        Footer(generalInfoJK);                      // footer
         floatBtnCallback(generalInfoJK);
     }
 }

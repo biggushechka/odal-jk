@@ -7,14 +7,13 @@ export default function Mortgage(jk_title) {
             content: "banks"
         }
     });
+    console.log('getBanks', getBanks)
 
     if (getBanks.code === 200) {
         getBanks = getBanks.data;
     } else {
         return false;
     }
-
-    return false;
 
     var html = `
     <section id="stock" data-section="mortgage">
@@ -42,8 +41,8 @@ export default function Mortgage(jk_title) {
                             </tr>
                         </thead>
                         <tbody>`;
-                            for (var i in banks) {
-                                var bank = banks[i],
+                            for (var i in getBanks) {
+                                var bank = getBanks[i],
                                     title = (bank.title != undefined && bank.title != '') ? bank.title : `<span style="color: red;">????????</span>`,
                                     rate = (bank.rate != undefined && bank.rate != '') ? bank.rate : `<span style="color: red;">???</span>`,
                                     initialPayment = (bank.initialPayment != undefined && bank.initialPayment != '') ? bank.initialPayment : `<span style="color: red;">???</span>`,
