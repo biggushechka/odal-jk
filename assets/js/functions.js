@@ -8,6 +8,10 @@ function XMLHttpRequestAJAX(data) {
 
     var xhr = new XMLHttpRequest();
 
+    if (sendData.url === "https://otal-estate.ru/api/site/content/get" && window.location.hostname === "odal-jk") {
+        sendData.body['domain'] = "ayu-dag.ru";
+    }
+
     if (sendData.method === "POST") {
         sendData.body = JSON.stringify(sendData.body);
         xhr.open("POST", sendData.url, (data.async) ? data.async : false);
