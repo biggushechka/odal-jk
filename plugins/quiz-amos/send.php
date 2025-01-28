@@ -1,6 +1,6 @@
 <?php
 
-$settings = include($_SERVER['DOCUMENT_ROOT'].'/backend/mail/settings.php');
+$settings = include('./settings.php');
 
 // отправка ответа на запрос
 function sendResponse($isSuccess){
@@ -56,6 +56,5 @@ if(!$data){
     sendResponse(false);
 } else {
     $message = createEmailTemplate($data);
-    $to = implode(',', $settings); // получатель(-и)
-    sendResponse(mail($to, "Пользователь прошел квиз", $message));
+    sendResponse(mail($settings['address'], $settings['subject'], $message));
 }

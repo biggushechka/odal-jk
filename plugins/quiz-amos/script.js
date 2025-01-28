@@ -1,85 +1,95 @@
-const ver = Math.random();
+var ver = Math.random()
+var pathQuiz = '/plugins/quiz-amos/questions/questions.json?v='+ver;
 
-if ($('#css_quiz').length == 0) {
-    $('head').append(`<link rel="stylesheet" href="/plugins/quiz-amos/style.css?v=${ver}" id="css_quiz">`)
-}
+// Закрыть модальное окно по ESC
+$(document).on('keyup', function(e) {
+    if (e.key == "Escape" && $('.am-modal-quiz').length > 0 && $('body > div, body > section').length > 2 ) {
+        $('.am-modal-quiz').remove();
+    }
+});
+
+// Закрыть модальное окно по фону
+$(document).on('mouseup', '.am-modal-quiz',function (e) {
+    var container = $(this);
+    if (container.has(e.target).length === 0 && $('body > div, body > section').length > 2 ){
+        $('.am-modal-quiz.fixed').remove();
+    }
+});
+
 
 let quizAnswers = [];
 
+
+var kuda;
 function initQuiz(data) {
+    var scClass = 'fixed';
 
-    var typeContainer = (data.append != undefined && data.append != '') ? 'block' : 'modal';
+    $('body').addClass("no-scroll");
 
-    const quiz = ajaxRequest({url: "/quiz-amos/questions/questions.json?v="+ver});
-
-    var html= `
-    <div class="am-modal-quiz ${typeContainer}" am-quiz>
-        <div class="am-modal-body">
-        
-            <!-- Вступление -->
-            <div class="am-step-start am-hide">
-                <div class="am-left-col">
-                    <img class="am-index-photo" src="/quiz-amos/questions/background.png" alt="img">
-                </div>
-                <div class="am-right-col">
-                    <p class="am-slogan-title">`+quiz.start[0].slogan+`</p>
-                    <div class="am-center-content">
-                        <p class="am-heading-start">`+quiz.start[0].title+`</p>
-                        <p class="am-desc-start">`+quiz.start[0].desc+`</p>
-                        <p class="am-footnote-start">`+quiz.start[0].footnote+`</p>
-                        <button class="am-btn am-btn-primary am-start-quiz">Пройти опрос <img src="https://sochi.estate/quiz-amos/icons/arrow-right.png"></button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Окно вопросов и сайдбар -->
-            <div class="am-dialog-question">
-                <!-- Окно с вопросами и навигацией -->
-                <div class="am-list-question">
-                    <!-- Слайдер -->
-                    <div class="am-slider-quiz">
-                        <!-- Вопрос -->
-                        `+questions(quiz)+`
-                    </div>
-                    
-                    <!-- Навигационный бар -->
-                    `+navBar(quiz)+`
-                <div>
-            </div>
-        </div>
-        <!-- Правый сайдбар -->
-        `+sidebar(quiz)+`
-    </div>`;
-    html = $(html);
-
-    if (typeContainer == 'block') {
-        $(data.append).append(html);
-    } else {
-        $('body').append(html);
+    if (data.place != 'body' || data.place == undefined) {
+        scClass = ''
     }
 
+    $.getJSON(pathQuiz, function(quiz) {
+        var html= `
+        <div class="am-modal-quiz `+scClass+`" am-quiz>
+            <button type="button" class="am-btn btn-close-quiz">✖</button>
+            <div class="am-modal-body">
+            
+                <!-- Вступление -->
+                <div class="am-step-start am-hide">
+                    <div class="am-left-col">
+                        <img class="am-index-photo" src="/assets/img/about-us-1.jpg" alt="img">
+                    </div>
+                    <div class="am-right-col">
+                        <p class="am-slogan-title">`+quiz.start[0].slogan+`</p>
+                        <div class="am-center-content">
+                            <p class="am-heading-start">`+quiz.start[0].title+`</p>
+                            <p class="am-desc-start">`+quiz.start[0].desc+`</p>
+                            <p class="am-footnote-start">`+quiz.start[0].footnote+`</p>
+                            <button class="am-btn am-btn-primary am-start-quiz">Рассчитать смету <i class="icon arrow-right-two"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Окно вопросов и сайдбар -->
+                <div class="am-dialog-question">
+                    <!-- Окно с вопросами и навигацией -->
+                    <div class="am-list-question">
+                        <!-- Слайдер -->
+                        <div class="am-slider-quiz">
+                            <!-- Вопрос -->
+                            `+questions(quiz)+`
+                        </div>
+                        
+                        <!-- Навигационный бар -->
+                        `+navBar(quiz)+`
+                    <div>
+                </div>
+            </div>
+            <!-- Правый сайдбар -->
+            `+sidebar(quiz)+`
+        </div>`;
+        $(data.place).append(html);
+        setTimeout(function(){
+            $('.am-step-start').removeClass('am-hide');
+        }, 0);
+        initSlider();
+    })
 
-    setTimeout(function() {
-        html.find('.am-step-start').removeClass('am-hide');
-    }, 0);
 
-    initSlider();
+    $(document).on('click', '.am-start-quiz', function () {
+        $('.am-dialog-question').addClass('am-show');
+        $('.am-step-start').addClass('am-hide').fadeOut('fast');
+    })
 
-
-    // Закрыть модальное окно по фону
-    html.click(function (e) {
-        if($(e.target).closest('.am-modal-quiz').length && $(e.target).is('.am-modal-quiz') && typeContainer == 'modal') {
-            html.remove();
-        }
-    });
-
-
-    html.find('.am-start-quiz').click(function () {
-        html.find('.am-dialog-question').addClass('am-show');
-        html.find('.am-step-start').addClass('am-hide').fadeOut('fast');
+    $(document).on('click', '.btn-close-quiz', function () {
+        $(this).closest('.am-modal-quiz').remove();
+        $('body').removeClass("no-scroll");
     })
 
     $(document).on('click', '.am-question-slide.am-active .am-answer-list:not(.am-your-answer) .am-answer-item', function () {
+
         if ( !$(this).hasClass('am-select') ) {
             $('.am-question-slide.am-active .am-answer-item').removeClass('am-select');
             $(this).addClass('am-select');
@@ -87,7 +97,8 @@ function initQuiz(data) {
         } else {
             $(this).removeClass('am-select');
         }
-    });
+
+    })
 }
 
 
@@ -128,13 +139,13 @@ function questions(quiz) {
                                 <div class="content">
                                     <img src="`+quiz.questions[i].answer[a].photo+`" alt="img">
                                 </div>
-                                <div class="am-checkbox"><img src="https://sochi.estate/quiz-amos/icons/checkbox.png"></div>
+                                <div class="am-checkbox"><i class="icon check"></i></div>
                             </div>`;
                     }
 
                     if ( quiz.questions[i].type != 'yourText' && quiz.questions[i].type != 'card' ) {
                         html += `
-                        <div class="am-checkbox"><img src="https://sochi.estate/quiz-amos/icons/checkbox.png"></div>`;
+                        <div class="am-checkbox"><i class="icon check"></i></div>`;
                     }
 
                     if ( quiz.questions[i].type != 'yourText' ) {
@@ -164,7 +175,7 @@ function navBar(quiz) {
         </div>
         <div class="am-buttons-nav">
             <button class="am-btn am-btn-secondary am-btn-prev">Назад</button>
-            <button class="am-btn am-btn-primary am-btn-next"><span class="am-large-title">Следующий вопрос</span><span class="am-small-title">Далее</span> <img src="https://sochi.estate/quiz-amos/icons/arrow-right.png"></button>
+            <button class="am-btn am-btn-primary am-btn-next"><span class="am-large-title">Следующий вопрос</span><span class="am-small-title">Далее</span> <i class="icon arrow-right-two"></i></button>
         </div>
     </div>
     `;
@@ -195,13 +206,13 @@ function sidebar(quiz) {
             <p class="am-heading">После ответов на вопросы, Вы получите:</p>
             <div class="am-gifts">
                 <div class="am-gift-item">
-                    <img src="/quiz-amos/questions/gift-1.png" alt="img" class="am-gift-photo">
+                    <img src="/plugins/quiz-amos/questions/gift-3.png" alt="img" class="am-gift-photo">
                     <p class="am-gift-title">`+quiz.gift[0].text+`</p>
                 </div>
             </div>
             <div class="am-gifts">
                 <div class="am-gift-item">
-                    <img src="/quiz-amos/questions/gift-2.png" alt="img" class="am-gift-photo">
+                    <img src="/plugins/quiz-amos/questions/gift-3.png" alt="img" class="am-gift-photo">
                     <p class="am-gift-title">`+quiz.gift[1].text+`</p>
                 </div>
             </div>
@@ -218,7 +229,7 @@ function finishQuiz() {
     <div class="am-finish-quiz am-hide">
         <div class="am-finish-text">
             <p class="am-heading">Отлично, остался последний шаг</p>
-            <p class="am-desc">Оставьте свои контактные данные, и обработав Ваши ответы - мы вышлем Вам индидивуальное предложение</p>
+            <p class="am-desc">Оставьте свои контактные данные, и обработав Ваши ответы - мы сделаем максимально выгодное предложение</p>
         </div>
         <div class="am-finish-form">
             <form>
@@ -230,11 +241,7 @@ function finishQuiz() {
                     <span>Номер телефона</span>
                     <input type="text" name="phone" class="valid-check mask-phone" placeholder="Телефон" data-error="Введите номер телефона">
                 </label>
-                <label class="container-approval">
-                    <input type="checkbox" name="approval" checked class="valid-approval" data-error="Требуется согласие на обработку и передачу персональных данных">
-                    <a href="https://sochi.estate/policy.html" target="_blank" class="link-approval">Согласие на обработку и передачу персональных данных</a>
-                </label> 
-                <button class="am-btn am-btn-primary am-send-form" type="button">Получить подборку <img src="https://sochi.estate/quiz-amos/icons/check.png"></button>
+                <button class="am-btn am-btn-primary am-send-form" type="button">Получить смету</button>
             </form>
         </div>
     </div>`;
@@ -267,16 +274,13 @@ function finishQuiz() {
             // Проверка полей
             if ( pathInput.hasClass('valid-check') && pathInput.val().length < 1 ) { // проверка на любое слово где > 1 символа
                 $(this).find('input, textarea, select').addClass('error-valid');
-                alert(errorText)
+                console.log(errorText)
             } else if ( pathInput.hasClass('phone') && pathInput.val().length < 18 ) { // проверка тел формата +7 (999) 999-99-99
                 $(this).find('input').addClass('error-valid');
-                alert(errorText)
+                console.log(errorText)
             } else if ( pathInput.hasClass('email') && !(pattern.test(pathInput.val())) ) { // проверка email типа name@mail.ru
                 $(this).find('input').addClass('error-valid');
-                alert(errorText)
-            } else if ( pathInput.hasClass('valid-approval') && !$('.valid-approval').is(':checked') ) { // проверка email типа name@mail.ru
-                $(this).find('.link-approval').addClass('error-valid');
-                alert(errorText)
+                console.log(errorText)
             } else {
                 validation = true;
                 completion++;
@@ -288,24 +292,15 @@ function finishQuiz() {
 
             let username = $(this).parents('form').find('[name="name"]').val()
             let phone = $(this).parents('form').find('[name="phone"]').val()
-
-
             let results = {
                 username,
                 phone,
                 quiz: quizAnswers
             }
 
-            $.ajax({
-                url: '/quiz-amos/send.php',
-                method: 'post',
-                dataType: 'json',
-                data: results,
-            }).done(function() {
-                window.location.href = "/pages/successfully/";
-            }).fail(function(error) {
-                console.log('error', error)
-            });
+            console.log("quiz-results", results);
+
+            sendQuizTelegram(results);
         }
     })
 
@@ -383,9 +378,54 @@ function sendAnswers() {
     return dataAnswer;
 }
 
-// Закрыть модальное окно по ESC
-$(document).on('keyup', function(e) {
-    if (e.key == "Escape" && $('.am-modal-quiz').length != 0) {
-        $('.am-modal-quiz').remove();
+
+
+function sendQuizTelegram(data) {
+    const botToken = global_tg_bot_token;
+    const chatId = global_tg_chatId;
+
+    let message;
+    let quizString = "";
+
+    if (data) {
+        console.log('data.quiz', data)
+
+        for (let i in data.quiz) {
+            const item = data.quiz[i];
+            const row = `${item.question}\n${item.answer}\n\n`;
+            quizString += row;
+        }
+
+        console.log('quizString', quizString)
+
+        const typeFeedback = {
+            heading: "🔔 Заявка на консультацию:",
+            name: data.username,
+            phone: data.phone,
+            quiz: data.quiz
+        };
+        let dataTg = mergeJson(typeFeedback, data);
+        message = `${dataTg.heading}\n\n👤 <b>Имя:</b> ${dataTg.name} \n📞 <b>Тел:</b> ${dataTg.phone}\n\n<b>Квиз:</b>\n${quizString}`;
+        console.log('message', message)
+
+        const response = XMLHttpRequestAJAX({
+            url: `https://api.telegram.org/bot${botToken}/sendMessage`,
+            method: "POST",
+            body: {
+                chat_id: chatId,
+                text: message,
+                parse_mode: 'HTML'
+            }
+        });
+        console.log('response', response.data)
+
+        if (response.data) {
+            if (response.data.ok) {
+                ym(89180965, 'reachGoal', 'order_done');
+                window.location.href = "/success-send";
+            } else {
+                alert(`Ошибка при отправке`)
+            }
+        }
     }
-});
+}

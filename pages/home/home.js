@@ -5,13 +5,13 @@ import Advantages from './Advantages.js'
 import AboutProject from './AboutProject.js'
 import Infrastructure from './Infrastructure.js'
 import PersonalTour from './PersonalTour.js'
-// import Quiz from './Quiz.js'
 import Gallery from './Gallery.js'
 import commercialBanner from './commercialBanner.js'
 import CapturePointPresent from './CapturePointPresent.js'
 import Mortgage from './Mortgage.js'
 import floatBtnCallback from './floatBtnCallback.js'
 import Footer from '/components/Footer.js'
+import Quiz from "./Quiz.js";
 
 
 var generalInfoJK;
@@ -41,29 +41,11 @@ function initSite() {
     AboutProject();
     PersonalTour();
     Infrastructure();
-    // Quiz();
+    Quiz();
     commercialBanner();
     Gallery();
     CapturePointPresent(generalInfoJK.title);
     Mortgage();
     Footer(generalInfoJK);
     floatBtnCallback(generalInfoJK);
-}
-
-function getMeta() {
-    const getMeta = XMLHttpRequestAJAX({
-        url: "https://otal-estate.ru/api/site/content/get",
-        method: "GET",
-        body: {
-            content: "meta"
-        }
-    });
-
-    if (getMeta.code === 200) {
-        XMLHttpRequestAJAX({
-            url: "/backend/getMeta.php",
-            method: "POST",
-            body: getMeta.data
-        });
-    }
 }

@@ -23,6 +23,7 @@ require_once "$root/backend/template.php";
     <link rel="icon" href="/static/favicon.svg">
     <link rel="apple-touch-icon" href="/static/favicon.svg">
     <link rel="mask-icon" href="/static/favicon.svg">
+    <link rel="stylesheet" href="/plugins/quiz-amos/style.css?v=<?= $version ?>">
 
     <?
     if ($meta) {
@@ -41,6 +42,7 @@ require_once "$root/backend/template.php";
 <main id="app"></main>
 
 <script src="/plugins/jquery-3.6.4.min.js"></script>
+<script src="/plugins/quiz-amos/script.js?v=<?= $version ?>"></script>
 <script src="/plugins/swiper/swiper-bundle.min.js"></script>
 <script src="/plugins/maskedinput/jquery.maskedinput.min.js"></script>
 <script src="/assets/js/functions.js?v=<?= $version ?>"></script>
