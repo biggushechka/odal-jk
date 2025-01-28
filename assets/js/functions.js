@@ -1,41 +1,38 @@
 function XMLHttpRequestAJAX(data) {
-    var getData = {};
     var sendData = {
-        url: data.url || "",
-        method: data.method || "POST",
-        body: data.body || ""
+        url: (data.url != undefined && data.url != "") ? data.url : "",
+        method: (data.method != undefined && data.method != "") ? data.method : "GET",
+        body: (data.body != undefined && data.body != "") ? data.body : ""
     }
 
     var xhr = new XMLHttpRequest();
 
-    if (sendData.url === "https://otal-estate.ru/api/site/content/get" && window.location.hostname === "odal-jk") {
+    if (sendData.method === "GET" && window.location.hostname === "odal-jk") {
         sendData.body['domain'] = "ayu-dag.ru";
+    }
+
+    if (sendData.method === "GET" || sendData.method === "DELETE" || sendData.method === "UPDATE") {
+        xhr.open(sendData.method, sendData.url + "?" + new URLSearchParams(sendData.body).toString(), false);
     }
 
     if (sendData.method === "POST") {
         sendData.body = JSON.stringify(sendData.body);
-        xhr.open("POST", sendData.url, (data.async) ? data.async : false);
-    } else {
-        xhr.open(sendData.method, sendData.url + "?" + new URLSearchParams(sendData.body).toString(), (data.async) ? data.async : false);
+        xhr.open("POST", sendData.url, false);
+        // xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+        // xhr.setRequestHeader('Content-Type', 'text/plain');
     }
 
-    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     xhr.send(sendData.body);
 
-    if (data.async && data.callback) {
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4) {
-                data.callback(xhr.responseText)
-            }
-        };
-    } else {
-        getData.code = xhr.status;
-        try {
-            getData.data = JSON.parse(xhr.responseText);
-        } catch (error) {
-            getData.data = xhr.responseText;
-        }
+    var getData = {};
+    getData.code = xhr.status;
+
+    try {
+        getData.data = JSON.parse(xhr.responseText);
+    } catch (error) {
+        getData.data = xhr.responseText;
     }
 
     return getData;
