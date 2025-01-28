@@ -14,38 +14,40 @@ import Footer from '/components/Footer.js'
 import Quiz from "./Quiz.js";
 
 
-var generalInfoJK;
-const getGeneralInfo = XMLHttpRequestAJAX({
-    url: "https://otal-estate.ru/api/site/content/get",
-    method: "GET",
-    body: {
-        content: "global"
+export default function HomePage() {
+    var generalInfoJK;
+    const getGeneralInfo = XMLHttpRequestAJAX({
+        url: "https://otal-estate.ru/api/site/content/get",
+        method: "GET",
+        body: {
+            content: "global"
+        }
+    });
+
+    if (getGeneralInfo.code === 200) {
+        generalInfoJK = getGeneralInfo.data;
+
+        if (generalInfoJK.activity == "on") {
+            getMeta();
+            initSite();
+        } else {
+            siteNotActive();
+        }
     }
-});
 
-if (getGeneralInfo.code === 200) {
-    generalInfoJK = getGeneralInfo.data;
-
-    if (generalInfoJK.activity == "on") {
-        getMeta();
-        initSite();
-    } else {
-        siteNotActive();
+    function initSite() {
+        Header(generalInfoJK);
+        MainSlider(generalInfoJK);
+        Advantages();
+        AboutProject();
+        PersonalTour();
+        Infrastructure();
+        Quiz();
+        commercialBanner();
+        Gallery();
+        CapturePointPresent(generalInfoJK.title);
+        Mortgage();
+        Footer(generalInfoJK);
+        floatBtnCallback(generalInfoJK);
     }
-}
-
-function initSite() {
-    Header(generalInfoJK);
-    MainSlider(generalInfoJK);
-    Advantages();
-    AboutProject();
-    PersonalTour();
-    Infrastructure();
-    Quiz();
-    commercialBanner();
-    Gallery();
-    CapturePointPresent(generalInfoJK.title);
-    Mortgage();
-    Footer(generalInfoJK);
-    floatBtnCallback(generalInfoJK);
 }
