@@ -24,7 +24,7 @@ var kuda;
 function initQuiz(data) {
     var scClass = 'fixed';
 
-    $('body').addClass("no-scroll");
+    // $('body').addClass("no-scroll");
 
     if (data.place != 'body' || data.place == undefined) {
         scClass = ''
