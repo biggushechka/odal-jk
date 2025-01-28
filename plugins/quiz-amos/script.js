@@ -19,8 +19,6 @@ $(document).on('mouseup', '.am-modal-quiz',function (e) {
 
 let quizAnswers = [];
 
-
-var kuda;
 function initQuiz(data) {
     var scClass = 'fixed';
 
@@ -71,6 +69,7 @@ function initQuiz(data) {
             `+sidebar(quiz)+`
         </div>`;
         $(data.place).append(html);
+
         setTimeout(function(){
             $('.am-step-start').removeClass('am-hide');
         }, 0);

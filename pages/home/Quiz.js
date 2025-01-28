@@ -9,6 +9,6 @@ export default function Quiz() {
     $('#app').append(html);
 
     initQuiz({
-        append: ".append-quiz-amos"
+        place: ".append-quiz-amos"
     });
 }
