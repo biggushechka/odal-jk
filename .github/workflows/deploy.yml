@@ -36,14 +36,21 @@ jobs:
             
             cd ${{env.SERVER_PATH}}/
             for site_folder in */; do
-                cd "$site_folder"
+            cd "$site_folder"
             
-                git reset --hard
-                git pull origin master;
+            # Проверяем, существует ли папка .git
+            if [ ! -d ".git" ]; then
+            # Очищаем каталог и клонируем новый проект (замените URL на свой)
+            rm -rf *
+            git clone <URL_вашего_репозитория> .
+            else
+            git reset --hard
+            git pull origin master
+            fi
             
-                cd backend
-                timestamp=$(date +%s)
-                sed -i '2s/.*/'$timestamp'/' version.txt
-                pwd
-                cd ../../
+            cd backend
+            timestamp=$(date +%s)
+            sed -i '2s/.*/'$timestamp'/' version.txt
+            pwd
+            cd ../../
             done
