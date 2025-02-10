@@ -7,7 +7,7 @@ export default function Mortgage(jk_title) {
             content: "banks"
         }
     });
-    console.log('getBanks', getBanks)
+    // console.log('getBanks', getBanks)
 
     if (getBanks.code === 200) {
         getBanks = getBanks.data;
