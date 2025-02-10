@@ -13,7 +13,6 @@ import floatBtnCallback from './floatBtnCallback.js'
 import Footer from '/components/Footer.js'
 import Quiz from "./Quiz.js";
 
-
 export default function HomePage() {
     var generalInfoJK;
     const getGeneralInfo = XMLHttpRequestAJAX({

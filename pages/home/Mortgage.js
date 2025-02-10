@@ -43,9 +43,9 @@ export default function Mortgage(jk_title) {
                         <tbody>`;
                             for (var i in getBanks) {
                                 var bank = getBanks[i],
-                                    title = (bank.title != undefined && bank.title != '') ? bank.title : `<span style="color: red;">????????</span>`,
-                                    rate = (bank.rate != undefined && bank.rate != '') ? bank.rate : `<span style="color: red;">???</span>`,
-                                    initialPayment = (bank.initialPayment != undefined && bank.initialPayment != '') ? bank.initialPayment : `<span style="color: red;">???</span>`,
+                                    title = (bank.title) ? bank.title : `<span style="color: red;">????????</span>`,
+                                    rate = (bank.rate) ? bank.rate : `<span style="color: red;">???</span>`,
+                                    initialPayment = (bank.initialPayment) ? bank.initialPayment : `<span style="color: red;">???</span>`,
                                     logo = (checkImageExists(bank.logo) != false && bank.logo != '') ? bank.logo : '/assets/img/photo-nan.jpg';
 
                                 html += `
