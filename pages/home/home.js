@@ -41,7 +41,7 @@ export default function HomePage() {
         AboutProject();                             // о проекте
         PersonalTour();                             // запись на персональную экскурсию
         Infrastructure();                           // инфраструктура
-        Quiz();                                     // квиз
+        // Quiz();                                     // квиз
         commercialBanner();                         // рекламный баннер
         Gallery();                                  // галерея
         CapturePointPresent(generalInfoJK.title);   // Получи презентацию
