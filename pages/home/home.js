@@ -35,13 +35,14 @@ export default function HomePage() {
     }
 
     function initSite() {
+        console.log('generalInfoJK', generalInfoJK)
         Header(generalInfoJK);                      // Шапка / Навигация
         MainSlider(generalInfoJK);                  // Главный слайдер
         Advantages();                               // преимущества
         AboutProject();                             // о проекте
         PersonalTour();                             // запись на персональную экскурсию
         Infrastructure();                           // инфраструктура
-        // Quiz();                                     // квиз
+        Quiz();                                     // квиз
         commercialBanner();                         // рекламный баннер
         Gallery();                                  // галерея
         CapturePointPresent(generalInfoJK.title);   // Получи презентацию

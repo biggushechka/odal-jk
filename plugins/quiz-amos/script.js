@@ -29,6 +29,21 @@ function initQuiz(data) {
     }
 
     $.getJSON(pathQuiz, function(quiz) {
+        let coverQuiz = "";
+        const getSliderGallery = XMLHttpRequestAJAX({
+            url: "https://otal-estate.ru/api/site/content/get",
+            method: "GET",
+            body: {
+                content: "mainSlider"
+            }
+        });
+
+        if (getSliderGallery.code === 200) {
+            coverQuiz = getSliderGallery.data[0].image;
+        } else {
+            return false;
+        }
+
         var html= `
         <div class="am-modal-quiz `+scClass+`" am-quiz>
             ${(!data.place) ? `<button type="button" class="am-btn btn-close-quiz">✖</button>` : ``}
@@ -37,7 +52,7 @@ function initQuiz(data) {
                 <!-- Вступление -->
                 <div class="am-step-start am-hide">
                     <div class="am-left-col">
-                        <img class="am-index-photo" src="/assets/img/about-us-1.jpg" alt="img">
+                        <img class="am-index-photo" src="${coverQuiz}" alt="img">
                     </div>
                     <div class="am-right-col">
                         <p class="am-slogan-title">`+quiz.start[0].slogan+`</p>
@@ -45,7 +60,7 @@ function initQuiz(data) {
                             <p class="am-heading-start">`+quiz.start[0].title+`</p>
                             <p class="am-desc-start">`+quiz.start[0].desc+`</p>
                             <p class="am-footnote-start">`+quiz.start[0].footnote+`</p>
-                            <button class="am-btn am-btn-primary am-start-quiz">Рассчитать смету <i class="icon arrow-right-two"></i></button>
+                            <button class="am-btn am-btn-primary am-start-quiz">Рассчитать смету <i class="icon arrow-right"></i></button>
                         </div>
                     </div>
                 </div>
@@ -174,7 +189,7 @@ function navBar(quiz) {
         </div>
         <div class="am-buttons-nav">
             <button class="am-btn am-btn-secondary am-btn-prev">Назад</button>
-            <button class="am-btn am-btn-primary am-btn-next"><span class="am-large-title">Следующий вопрос</span><span class="am-small-title">Далее</span> <i class="icon arrow-right-two"></i></button>
+            <button class="am-btn am-btn-primary am-btn-next"><span class="am-large-title">Следующий вопрос</span><span class="am-small-title">Далее</span> <i class="icon arrow-right"></i></button>
         </div>
     </div>
     `;
@@ -380,8 +395,13 @@ function sendAnswers() {
 
 
 function sendQuizTelegram(data) {
-    const botToken = global_tg_bot_token;
-    const chatId = global_tg_chatId;
+    // ------- test -------
+    const botToken = "6992664105:AAGlVd1qXIqcUpZEXCcfF1qFI-Z3i32vWz0";
+    const chatId = "-1002160719822";
+
+    // ------- deploy -------
+    // const botToken = "6394127824:AAEiTmzJQjuTwtU4oeEROoZeeiVn_Nj8TYQ";
+    // const chatId = "-956597558";
 
     let message;
     let quizString = "";
@@ -391,20 +411,21 @@ function sendQuizTelegram(data) {
 
         for (let i in data.quiz) {
             const item = data.quiz[i];
-            const row = `${item.question}\n${item.answer}\n\n`;
+            const row = `<b>[${++i}/${data.quiz.length}] ${item.question}</b>\n${item.answer}\n\n`;
             quizString += row;
         }
 
         console.log('quizString', quizString)
 
         const typeFeedback = {
-            heading: "🔔 Заявка на консультацию:",
+            heading: "🔔 Квиз:",
             name: data.username,
             phone: data.phone,
             quiz: data.quiz
         };
         let dataTg = mergeJson(typeFeedback, data);
-        message = `${dataTg.heading}\n\n👤 <b>Имя:</b> ${dataTg.name} \n📞 <b>Тел:</b> ${dataTg.phone}\n\n<b>Квиз:</b>\n${quizString}`;
+
+        message = `${dataTg.heading}\n\n👤 <b>Имя:</b> ${dataTg.name} \n📞 <b>Тел:</b> ${dataTg.phone}\n\n----------------\n\n${quizString}`;
         console.log('message', message)
 
         const response = XMLHttpRequestAJAX({
@@ -420,8 +441,8 @@ function sendQuizTelegram(data) {
 
         if (response.data) {
             if (response.data.ok) {
-                ym(89180965, 'reachGoal', 'order_done');
-                window.location.href = "/success-send";
+                // ym(89180965, 'reachGoal', 'order_done');
+                window.location.href = "/successfully";
             } else {
                 alert(`Ошибка при отправке`)
             }

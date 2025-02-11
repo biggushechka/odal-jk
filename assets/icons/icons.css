@@ -43,3 +43,13 @@
     mask-image: url(./burger.svg);
     -webkit-mask-image: url(./burger.svg);
 }
+
+.icon.arrow-right {
+    mask-image: url(./arrow-right.svg);
+    -webkit-mask-image: url(./arrow-right.svg);
+}
+
+.icon.check {
+    mask-image: url(./check.svg);
+    -webkit-mask-image: url(./check.svg);
+}

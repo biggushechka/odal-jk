@@ -13,16 +13,14 @@ function XMLHttpRequestAJAX(data) {
 
     if (sendData.method === "GET" || sendData.method === "DELETE" || sendData.method === "UPDATE") {
         xhr.open(sendData.method, sendData.url + "?" + new URLSearchParams(sendData.body).toString(), false);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     }
 
     if (sendData.method === "POST") {
         sendData.body = JSON.stringify(sendData.body);
         xhr.open("POST", sendData.url, false);
-        // xhr.setRequestHeader('Content-Type', 'multipart/form-data');
-        // xhr.setRequestHeader('Content-Type', 'text/plain');
+        xhr.setRequestHeader('Content-Type', 'application/json');
     }
-
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     xhr.send(sendData.body);
 
@@ -36,13 +34,6 @@ function XMLHttpRequestAJAX(data) {
     }
 
     return getData;
-}
-
-function checkImageExists(imageUrl) {
-    var http = new XMLHttpRequest();
-    http.open('HEAD', imageUrl, false);
-    http.send();
-    return http.status != 404;
 }
 
 // импорт компонента js

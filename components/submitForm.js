@@ -48,6 +48,13 @@ function submitForm(targetClick) {
 
     // Валидация пройдена и готова отправка формы
     if ( completion === countLabel && validation === true ) {
+        // ------- test -------
+        const botToken = "6992664105:AAGlVd1qXIqcUpZEXCcfF1qFI-Z3i32vWz0";
+        const chatId = "-1002160719822";
+
+        // ------- deploy -------
+        // const botToken = "6394127824:AAEiTmzJQjuTwtU4oeEROoZeeiVn_Nj8TYQ";
+        // const chatId = "-956597558";
 
         var arrayForm = {};
         arrayForm.type = thisClick;
@@ -61,14 +68,34 @@ function submitForm(targetClick) {
             arrayForm[label] = value;
         });
 
-        const sendOrder = XMLHttpRequestAJAX({
-            url: 'https://otal-estate.ru/api/site/orders/get-form-website',
-            method: "POST",
-            body: arrayForm
-        });
+        console.log('arrayForm', arrayForm)
 
-        if (sendOrder.code && sendOrder.code === 200) {
-            alert("Заявка отправлена!")
+        const dataFeedback = {
+            heading: "🔔 Заявка на консультацию:",
+            name: arrayForm.name,
+            phone: arrayForm.phone
+        };
+
+        const message = `${dataFeedback.heading}\n\n👤 <b>Имя:</b> ${dataFeedback.name} \n📞 <b>Тел:</b> ${dataFeedback.phone}`;
+
+        const response = XMLHttpRequestAJAX({
+            url: `https://api.telegram.org/bot${botToken}/sendMessage`,
+            method: "POST",
+            body: {
+                chat_id: chatId,
+                text: message,
+                parse_mode: 'HTML'
+            }
+        });
+        console.log('response', response.data)
+
+        if (response.data) {
+            if (response.data.ok) {
+                // ym(89180965, 'reachGoal', 'order_done');
+                window.location.href = "/successfully";
+            } else {
+                alert(`Ошибка при отправке`)
+            }
         }
 
     }

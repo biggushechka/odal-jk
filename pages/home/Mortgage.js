@@ -46,7 +46,7 @@ export default function Mortgage(jk_title) {
                                     title = (bank.title) ? bank.title : `<span style="color: red;">????????</span>`,
                                     rate = (bank.rate) ? bank.rate : `<span style="color: red;">???</span>`,
                                     initialPayment = (bank.initialPayment) ? bank.initialPayment : `<span style="color: red;">???</span>`,
-                                    logo = (checkImageExists(bank.logo) != false && bank.logo != '') ? bank.logo : '/assets/img/photo-nan.jpg';
+                                    logo = bank.logo || '/assets/img/photo-nan.jpg';
 
                                 html += `
                                 <tr>
