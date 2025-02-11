@@ -189,7 +189,8 @@
 
 .am-modal-quiz .am-modal-body .am-step-start .am-right-col .am-center-content .am-desc-start {
   font-weight: 600;
-  font-size: 17px;
+  font-size: 14px;
+  line-height: normal;
   color: rgba(0, 0, 0, 0.8);
   margin-bottom: 40px;
 }
@@ -536,6 +537,7 @@
 .am-modal-quiz .am-modal-body .am-dialog-question .am-right-col-sidebar .am-manager-hint .am-hint-manager {
   font-weight: 500;
   font-size: 14px;
+  line-height: normal;
   color: var(--gray_3);
   margin-top: 20px;
 }
@@ -593,6 +595,7 @@
   z-index: 1;
   font-weight: 600;
   font-size: 14px;
+  line-height: normal;
   color: #5E5E5E;
 }
 

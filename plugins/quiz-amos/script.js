@@ -60,7 +60,7 @@ function initQuiz(data) {
                             <p class="am-heading-start">`+quiz.start[0].title+`</p>
                             <p class="am-desc-start">`+quiz.start[0].desc+`</p>
                             <p class="am-footnote-start">`+quiz.start[0].footnote+`</p>
-                            <button class="am-btn am-btn-primary am-start-quiz">Рассчитать смету <i class="icon arrow-right"></i></button>
+                            <button class="am-btn am-btn-primary am-start-quiz">Получить подборку <i class="icon arrow-right"></i></button>
                         </div>
                     </div>
                 </div>
@@ -202,7 +202,7 @@ function sidebar(quiz) {
 
         <!-- Скидка -->
         <div class="am-your-discount">
-            <p class="am-amount">Ваша скидка: <span>`+quiz.start[0].discount+` руб.</span></p>
+            <p class="am-amount">Ваша выгода уже здесь!</p>
         </div>
 
         <!-- Менеджер -->
@@ -255,7 +255,7 @@ function finishQuiz() {
                     <span>Номер телефона</span>
                     <input type="text" name="phone" class="valid-check mask-phone" placeholder="Телефон" data-error="Введите номер телефона">
                 </label>
-                <button class="am-btn am-btn-primary am-send-form" type="button">Получить смету</button>
+                <button class="am-btn am-btn-primary am-send-form" type="button">Получить подборку</button>
             </form>
         </div>
     </div>`;

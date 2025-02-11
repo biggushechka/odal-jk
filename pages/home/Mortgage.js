@@ -26,9 +26,8 @@ export default function Mortgage(jk_title) {
                     <div class="residents__info">
                         <span>Варианты покупки</span>
                         <h2>Доступная ипотека</h2>
-                        <p>Получите расчёт ипотеки на максимально выгодных условиях в ЖК “${jk_title}”</p>
+                        <p>Получите расчёт ипотеки на максимально выгодных условиях</p>
                         <button type="button" class="btn modal-callback" data-target="mortgage">Рассчитать ипотеку</button>
-                        <strong>%</strong>
                     </div>
                 </div>
                 <div class="affordable__table">
