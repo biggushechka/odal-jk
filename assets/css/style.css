@@ -10,3 +10,267 @@
 @import "./footer.css";
 @import "./mobnav.css";
 @import "./ModalThrough.css";
+
+.no-scroll {
+    overflow: hidden !important;
+}
+
+h1 {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 72px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+h1 span {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 60px;
+    text-align: left;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 48px;
+    text-align: left;
+    color: #162B32;
+    text-transform: uppercase;
+}
+
+h3 {
+    color: #162B32;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 41px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 27px;
+    text-align: left;
+    color: #7D7D7D;
+    font-family: 'Open Sans';
+}
+
+.btn, .button {
+    padding: 23px 30px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    transition: 0.3s;
+    font-family: 'Styrene A Web';
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 17px;
+    text-transform: uppercase;
+}
+
+.btn {
+    background: linear-gradient(90deg, #C13845 0%, var(--index) 100%);
+    color: #ffffff;
+    overflow: hidden;
+    position: relative;
+}
+
+.btn:focus {
+    transform: scale(0.96);
+}
+
+.btn:after {
+    content: "";
+    margin-left: 60px;
+    width: 30px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.86);
+    -webkit-animation-delay: 0.05s;
+    animation-delay: 0.05s;
+    position: absolute;
+    left: -40px;
+    top: -150px;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-transition: all 0.1s;
+    transition: all 0.1s;
+    -webkit-animation-name: slideme;
+    animation-name: slideme;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    z-index: 0;
+}
+
+@keyframes slideme {
+    0% {
+        left: -30px;
+        margin-left: 0;
+    }
+    100%, 30% {
+        left: 110%;
+        margin-left: 80px;
+    }
+}
+
+.button {
+    color: var(--index);
+    background: linear-gradient(90deg, rgba(193, 56, 69, 0.1) 0%, rgba(190, 30, 45, 0.1) 100%);
+}
+
+.button:hover {
+    background: var(--index);
+    color: #ffffff;
+}
+
+
+.form-input {
+    max-width: 314px;
+    width: 100%;
+    position: relative;
+}
+
+.form-input label {
+    display: flex;
+    width: 100%;
+}
+
+.form-input label input {
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(0deg, #FFFFFF, #FFFFFF),
+    linear-gradient(0deg, #BAC2CA, #BAC2CA);
+    border: 1px solid #BAC2CA;
+    padding-left: 51px;
+    color: #000000;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    border-radius: 4px;
+}
+
+.form-input label input.error-valid {
+    border-color: red;
+}
+
+.form-input label input.error-valid::placeholder {
+    color: red;
+}
+
+.form-input label input::placeholder {
+    color: #7E868E;
+}
+
+.form-input i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    left: 26px;
+
+}
+
+.checkform {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    color: #ffffff;
+    margin-top: 17px;
+    font-family: 'Open Sans';
+
+}
+
+.checkform a {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    color: #ffffff;
+    text-decoration: underline;
+    font-family: 'Open Sans';
+
+}
+
+.checkform a:hover {
+    text-decoration: unset;
+}
+
+.checkform input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    height: 12px;
+    width: 12px;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+.checkform input:checked ~ .checkmark {
+    background-color: #4A94FF;
+}
+
+.checkform .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 4px;
+    top: 1px;
+    width: 3px;
+    height: 6px;
+    border: solid white;
+    border-width: 0 1px 1px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.checkform input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.present__detailed {
+    margin-top: 40px;
+}
+
+.present__detailed .form-input {
+    margin-bottom: 20px;
+}
+
+.present__detailed .btn {
+    margin-top: 35px;
+}
+
+@media (max-width: 1200px) {
+    .present__detailed {
+        margin-top: 20px;
+    }
+}

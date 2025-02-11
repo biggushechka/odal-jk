@@ -396,12 +396,12 @@ function sendAnswers() {
 
 function sendQuizTelegram(data) {
     // ------- test -------
-    const botToken = "6992664105:AAGlVd1qXIqcUpZEXCcfF1qFI-Z3i32vWz0";
-    const chatId = "-1002160719822";
+    // const botToken = "6992664105:AAGlVd1qXIqcUpZEXCcfF1qFI-Z3i32vWz0";
+    // const chatId = "-1002160719822";
 
     // ------- deploy -------
-    // const botToken = "6394127824:AAEiTmzJQjuTwtU4oeEROoZeeiVn_Nj8TYQ";
-    // const chatId = "-956597558";
+    const botToken = "6394127824:AAEiTmzJQjuTwtU4oeEROoZeeiVn_Nj8TYQ";
+    const chatId = "-956597558";
 
     let message;
     let quizString = "";

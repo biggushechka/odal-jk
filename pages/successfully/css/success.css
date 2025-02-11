@@ -1,0 +1,32 @@
+.page-thank {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.page-thank .wrapper-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 480px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.page-thank .wrapper-container .heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.page-thank .wrapper-container .desc {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.page-thank .wrapper-container .link-home {
+    background: linear-gradient(90deg, #C13845 0%, var(--index) 100%);
+    color: #ffffff;
+    overflow: hidden;
+    position: relative;
+}

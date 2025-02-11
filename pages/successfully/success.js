@@ -1,13 +1,10 @@
 export default function success() {
     var html = `
     <section class="page-thank">
-        <div class="container">
-            <div class="page-thank__tit">
-                <h2>Всё прошло успешно!</h2>
-                <p>В ближайшее время мы вам перезвоним на указанный номер телефона.</p>
-                <img src="/assets/img/phone1.png" alt="icon">
-                <a href="/" class="btn">На главную страницу</a>
-            </div>
+        <div class="wrapper-container">
+            <h2 class="heading">Заявка успешно отправлена!</h2>
+            <p class="desc">В ближайшее время мы Вам перезвоним на указанный номер телефона.</p>
+            <a href="/" class="btn link-home">На главную страницу</a>
         </div>
     </section>`;
     html = $(html);
