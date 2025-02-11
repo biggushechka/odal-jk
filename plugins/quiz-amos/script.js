@@ -425,8 +425,7 @@ function sendQuizTelegram(data) {
         };
         let dataTg = mergeJson(typeFeedback, data);
 
-        message = `${dataTg.heading}\n\n👤 <b>Имя:</b> ${dataTg.name} \n📞 <b>Тел:</b> ${dataTg.phone}\n\n----------------\n\n${quizString}`;
-        console.log('message', message)
+        message = `${dataTg.heading}\n\n👤 <b>Имя:</b> ${dataTg.name} \n📞 <b>Тел:</b> ${dataTg.phone}\n🌐 <b>Сайт:</b> ${window.location.origin}\n\n-----------------------\n\n${quizString}`;
 
         const response = XMLHttpRequestAJAX({
             url: `https://api.telegram.org/bot${botToken}/sendMessage`,

@@ -76,7 +76,7 @@ function submitForm(targetClick) {
             phone: arrayForm.phone
         };
 
-        const message = `${dataFeedback.heading}\n\n👤 <b>Имя:</b> ${dataFeedback.name} \n📞 <b>Тел:</b> ${dataFeedback.phone}`;
+        const message = `${dataFeedback.heading}\n\n👤 <b>Имя:</b> ${dataFeedback.name} \n📞 <b>Тел:</b> ${dataFeedback.phone}\n🌐 <b>Сайт:</b> ${window.location.origin}`;
 
         const response = XMLHttpRequestAJAX({
             url: `https://api.telegram.org/bot${botToken}/sendMessage`,
