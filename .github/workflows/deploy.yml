@@ -45,29 +45,3 @@ jobs:
             
               cd ../
             done
-            
-            
-            
-            
-            
-            
-            cd ${{env.SERVER_PATH}}/
-            for site_folder in */; do
-            cd "$site_folder"
-            
-            # Проверяем, существует ли папка .git
-            if [ ! -d ".git" ]; then
-            # Очищаем каталог и клонируем новый проект (замените URL на свой)
-            rm -rf *
-            git clone https://github.com/biggushechka/odal-jk.git .
-            else
-            git reset --hard
-            git pull origin master
-            fi
-            
-            cd backend
-            timestamp=$(date +%s)
-            sed -i '2s/.*/'$timestamp'/' version.txt
-            pwd
-            cd ../../
-            done
