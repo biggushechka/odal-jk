@@ -39,8 +39,10 @@ jobs:
               cd "$site_folder"
               
               if [ ! -d ".git" ]; then
+                rm -rf *
                 git clone https://github.com/biggushechka/odal-jk.git .
               else
+                git reset --hard
                 git pull origin master
               fi
             
