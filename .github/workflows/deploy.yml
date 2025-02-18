@@ -41,7 +41,6 @@ jobs:
               if [ ! -d ".git" ]; then
                 rm -rf *
                 git clone https://${{secrets.TOKEN}}@github.com/biggushechka/odal-jk.git .
-
               else
                 git pull origin master
               fi

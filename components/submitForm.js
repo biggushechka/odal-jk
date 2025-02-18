@@ -87,7 +87,19 @@ function submitForm(targetClick) {
                 parse_mode: 'HTML'
             }
         });
-        console.log('response', response.data)
+        console.log('response', response.data);
+
+
+        const sendEmail = XMLHttpRequestAJAX({
+            url: `https://otal-estate.ru/api/template-email`,
+            method: "POST",
+            body: {
+                name: arrayForm.name,
+                phone: arrayForm.phone,
+                ymClient: "",
+            }
+        });
+        console.log('sendEmail', sendEmail.data);
 
         if (response.data) {
             if (response.data.ok) {
