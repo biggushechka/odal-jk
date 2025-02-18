@@ -33,12 +33,5 @@ jobs:
           password: ${{env.SERVER_PASS}}
           key: ${{secrets.KEY}}
           script: |
-                    
-            for dir in ${SERVER_PATH}/*; do
-            if [ -d "$dir" ]; then
-            echo "Updating repository in $dir"
-            cd "$dir"
-            echo "directory: $(pwd)"
-            #                git pull origin master
-            fi
-            done
+            
+            cd ${{env.SERVER_PATH}}/
