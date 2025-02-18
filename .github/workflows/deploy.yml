@@ -43,7 +43,7 @@ jobs:
                 git clone https://${{secrets.TOKEN}}@github.com/biggushechka/odal-jk.git .
 
               else
-                git pull
+                git fetch
               fi
             
               cd ../
