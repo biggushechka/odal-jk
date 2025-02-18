@@ -40,7 +40,7 @@ jobs:
               
               if [ ! -d ".git" ]; then
                 rm -rf *
-                git clone https://${{secrets.TOKEN}}@github.com/biggushechka/odal-jk.git .
+                git clone git@github.com:biggushechka/odal-jk.git .
 
               else
                 git checkout master;
