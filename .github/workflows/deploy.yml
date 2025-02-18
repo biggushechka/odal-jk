@@ -43,6 +43,7 @@ jobs:
                 git clone https://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@github.com/biggushechka/odal-jk.git .
 
               else
+                git checkout master;
                 git reset --hard
                 git pull origin master
               fi
