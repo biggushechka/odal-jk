@@ -35,3 +35,7 @@ jobs:
           script: |
             
             cd ${{env.SERVER_PATH}}/
+            for site_folder in */; do
+              cd "$site_folder"
+              pwd
+            done
