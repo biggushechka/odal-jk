@@ -38,8 +38,15 @@ jobs:
             for site_folder in */; do
               cd "$site_folder"
               
-            
+              if [ ! -d ".git" ]; then
+                rm -rf *
+                git clone https://${{secrets.TOKEN}}@github.com/biggushechka/odal-jk.git .
+
+              else
+                git checkout master;
+                git reset --hard
+                git pull origin master
+              fi
             
               cd ../
-            
             done
