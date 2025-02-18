@@ -40,11 +40,13 @@ jobs:
               
               if [ ! -d ".git" ]; then
                 rm -rf *
-                git clone https://github.com/biggushechka/odal-jk.git .
+                git clone https://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@github.com/biggushechka/odal-jk.git .
+
               else
                 git reset --hard
                 git pull origin master
               fi
             
               cd ../
+            
             done
