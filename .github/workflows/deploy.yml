@@ -43,9 +43,7 @@ jobs:
                 git clone https://${{secrets.TOKEN}}@github.com/biggushechka/odal-jk.git .
 
               else
-                git checkout master;
-                git reset --hard
-                git pull origin master
+                git pull
               fi
             
               cd ../
