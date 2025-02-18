@@ -7,7 +7,7 @@ function XMLHttpRequestAJAX(data) {
 
     var xhr = new XMLHttpRequest();
 
-    if (sendData.method === "GET" && window.location.hostname === "localhost") {
+    if (sendData.method === "GET" && (window.location.hostname === "localhost" || window.location.hostname === "odal-jk")) {
         sendData.body['domain'] = "akvamarin.krym-estate.ru";
     }
 

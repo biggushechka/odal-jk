@@ -91,7 +91,7 @@ function submitForm(targetClick) {
 
         if (response.data) {
             if (response.data.ok) {
-                // ym(89180965, 'reachGoal', 'order_done');
+                ym(89180965, 'reachGoal', 'order_done');
                 window.location.href = "/successfully";
             } else {
                 alert(`Ошибка при отправке`)
