@@ -6,7 +6,7 @@ require_once $root . '/backend/clearCash.php';
 if ($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == 'odal-jk') {
     $version = mt_rand(10000, 99999999);
 } else {
-    $version = "1.0.3";
+    $version = "1.0.4";
 //    $getFileVersion = file($root."/backend/version.txt", FILE_IGNORE_NEW_LINES);
 //    $version_now = $getFileVersion[0];
 //    $version_new = $getFileVersion[1];
