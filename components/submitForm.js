@@ -84,7 +84,8 @@ function submitForm(targetClick) {
             body: {
                 chat_id: chatId,
                 text: message,
-                parse_mode: 'HTML'
+                parse_mode: 'HTML',
+                disable_web_page_preview: true
             }
         });
         console.log('response', response.data);
