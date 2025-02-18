@@ -39,9 +39,9 @@ jobs:
               cd "$site_folder"
               
               if [ ! -d ".git" ]; then
-                echo "111"
+                git clone https://github.com/biggushechka/odal-jk.git .
               else
-                echo "222"
+                git pull origin master
               fi
             
               cd ../
