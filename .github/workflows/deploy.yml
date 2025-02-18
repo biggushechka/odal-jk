@@ -39,9 +39,10 @@ jobs:
               cd "$site_folder"
               
               if [ ! -d ".git" ]; then
-              echo "111"
+                echo "111"
               else
-              echo "222"
+                echo "222"
+              fi
             
               cd ../
             done
