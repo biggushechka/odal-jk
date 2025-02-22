@@ -19,11 +19,11 @@ export default function Footer(jk) {
                             <strong>Контакты</strong>
                             <div class="footer__mail">
                                 <span>Телефон:</span>
-                                <a href="tel:${jk.contacts.phone}">${jk.contacts.phone}</a>
+                                <a href="tel:+7 (967) 555-91-68">+7 (967) 555-91-68</a>
                             </div>
                             <div class="footer__mail">
                                 <span>Электронная почта:</span>
-                                <a href="mailto:${jk.contacts.email}" class="">${jk.contacts.email}</a>
+                                <a href="mailto: lidotal@otal-estate.ru" class="">lidotal@otal-estate.ru</a>
                             </div>
                             <div class="footer__adres">
                                 <span>Адрес:</span>

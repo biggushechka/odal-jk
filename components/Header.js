@@ -31,7 +31,7 @@ export default function Header(jk) {
                         html += `
                     </div>
                     <div>                    
-                        <a href="tel:${jk.contacts.phone}" class="header__phone">${jk.contacts.phone}</a>
+                        <a href="tel:+79675559168" class="header__phone">+7 (967) 555-91-68</a>
                         <button type="button" class="header__request modal-callback" data-target="callback">Заказать звонок</button>
                     </div>
                 </div>
